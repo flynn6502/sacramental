@@ -1,0 +1,75 @@
+:root {
+    --navy: #002D5B;
+    --gold: #C4A35A;
+    --cream: #F6F1E7;
+    --paper: #FFFEFB;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: #eef2f6;
+    color: #1a2a38;
+}
+
+.admin-login-body {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #002D5B 0%, #001a36 100%);
+    padding: 1rem;
+}
+
+.login-card {
+    background: var(--paper);
+    border-radius: 16px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.login-header { text-align: center; margin-bottom: 1.5rem; }
+.login-icon { border-radius: 50%; margin-bottom: 0.75rem; object-fit: cover; }
+.login-header h1 { font-size: 1.35rem; color: var(--navy); margin: 0 0 0.25rem; }
+.login-header p { margin: 0; color: #667; }
+
+.btn-admin {
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    padding: 0.65rem;
+}
+
+.admin-navbar {
+    background: var(--navy);
+    color: #fff;
+    padding: 0.85rem 0;
+}
+
+.admin-navbar .brand { color: #fff; font-weight: 700; text-decoration: none; }
+.admin-navbar a { color: #fff; text-decoration: none; }
+
+.dashboard-main { padding: 1.25rem 0 3rem; }
+
+.stat-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 45, 91, 0.08);
+}
+
+.stat-label { font-size: 0.78rem; color: #667; }
+.stat-value { font-size: 1.6rem; font-weight: 700; color: var(--navy); }
+
+.chart-card, .table-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 8px 24px rgba(0, 45, 91, 0.08);
+    height: 100%;
+}
+
+.chart-card h2, .table-card h2 { font-size: 1rem; color: var(--navy); }
+.chart-wrap { min-height: 220px; }

@@ -1,0 +1,94 @@
+body.consent-banner-open {
+    padding-bottom: 10rem;
+}
+
+.consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 160;
+    padding: 0.75rem;
+    animation: consentSlideUp 0.35s ease-out;
+}
+
+@keyframes consentSlideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.consent-banner.hidden { display: none !important; }
+
+.consent-banner-inner {
+    max-width: 520px;
+    margin: 0 auto;
+    background: #FFFEFB;
+    color: #002D5B;
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 -4px 28px rgba(0, 0, 0, 0.28);
+    border: 2px solid #002D5B;
+}
+
+.consent-banner-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+}
+
+.consent-banner-text {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin: 0 0 0.75rem;
+    color: #445;
+}
+
+.consent-banner-text a {
+    color: #9A7B32;
+    font-weight: 600;
+}
+
+.consent-banner-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-consent-accept {
+    flex: 1;
+    min-width: 120px;
+    background: #002D5B;
+    color: #FFFEFB;
+    border: none;
+    border-radius: 8px;
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-consent-decline {
+    flex: 1;
+    min-width: 120px;
+    background: transparent;
+    color: #002D5B;
+    border: 1px solid #002D5B;
+    border-radius: 8px;
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.footer-privacy-link {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.footer-privacy-link a { color: #C4A35A; }
+
+@media (max-width: 400px) {
+    .consent-banner-actions { flex-direction: column; }
+}

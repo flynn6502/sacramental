@@ -1,0 +1,4610 @@
+{
+  "source": "churchofjesuschrist.org / hinários oficiais em português",
+  "hymns": [
+    {
+      "id": "1991-1",
+      "number": "1",
+      "title": "A Alva Rompe",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-2",
+      "number": "2",
+      "title": "Tal Como um Facho",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-3",
+      "number": "3",
+      "title": "Alegres Cantemos",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-4",
+      "number": "4",
+      "title": "No Monte a Bandeira",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-5",
+      "number": "5",
+      "title": "Israel, Jesus Te Chama",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-6",
+      "number": "6",
+      "title": "Um Anjo Lá do Céu",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-7",
+      "number": "7",
+      "title": "O Que Vimos Lá nos Céus",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-8",
+      "number": "8",
+      "title": "Oração pelo Profeta",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-9",
+      "number": "9",
+      "title": "Graças Damos, Ó Deus, Por um Profeta",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-10",
+      "number": "10",
+      "title": "Vinde ao Profeta Escutar",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-11",
+      "number": "11",
+      "title": "Abençoa Nosso Profeta",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-12",
+      "number": "12",
+      "title": "Que Manhã Maravilhosa!",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-13",
+      "number": "13",
+      "title": "Rejubilai-vos, Ó Nações",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-14",
+      "number": "14",
+      "title": "Hoje, ao Profeta Louvemos",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-15",
+      "number": "15",
+      "title": "Um Pobre e Aflito Viajor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-16",
+      "number": "16",
+      "title": "Ó Montanhas Mil",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-17",
+      "number": "17",
+      "title": "Por Teus Dons",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-18",
+      "number": "18",
+      "title": "Vede, Ó Santos",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-19",
+      "number": "19",
+      "title": "Sereno Finda o Dia",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-20",
+      "number": "20",
+      "title": "Vinde, Ó Santos",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-21",
+      "number": "21",
+      "title": "Ao Salvador Louvemos",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-22",
+      "number": "22",
+      "title": "Em Glória Resplandesce",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-23",
+      "number": "23",
+      "title": "Lá nos Cumes",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-24",
+      "number": "24",
+      "title": "Vem, Ó Dia Prometido",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-25",
+      "number": "25",
+      "title": "Bela Sião",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-26",
+      "number": "26",
+      "title": "O Mundo Desperta",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-27",
+      "number": "27",
+      "title": "Vinde, Ó Filhos do Senhor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-28",
+      "number": "28",
+      "title": "Ó Vem, Supremo Rei",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Restauração",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-29",
+      "number": "29",
+      "title": "Ó Criaturas do Senhor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-30",
+      "number": "30",
+      "title": "Ó Santos, Que na Terra Habitais",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-31",
+      "number": "31",
+      "title": "Com Braço Forte",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-32",
+      "number": "32",
+      "title": "Castelo Forte",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-33",
+      "number": "33",
+      "title": "Glória a Deus Cantai",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-34",
+      "number": "34",
+      "title": "Louvai a Deus",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-35",
+      "number": "35",
+      "title": "A Deus, Senhor e Rei",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-36",
+      "number": "36",
+      "title": "Deus É Amor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-37",
+      "number": "37",
+      "title": "O Senhor Meu Pastor É",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-38",
+      "number": "38",
+      "title": "Que Toda Honra e Glória",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-39",
+      "number": "39",
+      "title": "Corações, Pois, Exultai",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-40",
+      "number": "40",
+      "title": "Jeová, Sê Nosso Guia",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-41",
+      "number": "41",
+      "title": "Firmes Segui",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-42",
+      "number": "42",
+      "title": "Que Firme Alicerce",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-43",
+      "number": "43",
+      "title": "Grandioso És Tu",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-44",
+      "number": "44",
+      "title": "Jesus, Minha Luz",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-45",
+      "number": "45",
+      "title": "Ó Vós Que Amais ao Senhor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-46",
+      "number": "46",
+      "title": "Nossas Vozes Elevemos",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-47",
+      "number": "47",
+      "title": "Deus nos Rege com Amor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-48",
+      "number": "48",
+      "title": "Ó Pai Bendito",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-49",
+      "number": "49",
+      "title": "Pela Beleza do Mundo",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-50",
+      "number": "50",
+      "title": "Cantando Louvamos",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-51",
+      "number": "51",
+      "title": "Oração de Graças",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-52",
+      "number": "52",
+      "title": "Vinde, Ó Povos, Graças Dar",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-53",
+      "number": "53",
+      "title": "Se Tenho Fé",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-54",
+      "number": "54",
+      "title": "Doce É o Trabalho",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-55",
+      "number": "55",
+      "title": "Santo! Santo! Santo!",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-56",
+      "number": "56",
+      "title": "Os Céus Proclamam",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-57",
+      "number": "57",
+      "title": "Conta as Bênçãos",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-58",
+      "number": "58",
+      "title": "Ao Deus de Abraão Louvai",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-59",
+      "number": "59",
+      "title": "Louvai o Eterno Criador",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Louvor e Ação de Graças",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor",
+        "restauração"
+      ]
+    },
+    {
+      "id": "1991-60",
+      "number": "60",
+      "title": "Brilha, Meiga Luz",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-61",
+      "number": "61",
+      "title": "Careço de Jesus",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-62",
+      "number": "62",
+      "title": "Mais Perto Quero Estar",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-63",
+      "number": "63",
+      "title": "Guia-me a Ti",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-64",
+      "number": "64",
+      "title": "Ó Pai Celeste",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-65",
+      "number": "65",
+      "title": "Jesus Cristo É Meu Senhor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-66",
+      "number": "66",
+      "title": "Creio em Cristo",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-67",
+      "number": "67",
+      "title": "Vive o Redentor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-68",
+      "number": "68",
+      "title": "Vinde a Mim",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-69",
+      "number": "69",
+      "title": "Vinde a Cristo",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-70",
+      "number": "70",
+      "title": "Eu Sei Que Vive Meu Senhor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-71",
+      "number": "71",
+      "title": "Testemunho",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-72",
+      "number": "72",
+      "title": "Mestre, o Mar Se Revolta",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-73",
+      "number": "73",
+      "title": "Onde Encontrar a Paz?",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-74",
+      "number": "74",
+      "title": "Sê Humilde",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-75",
+      "number": "75",
+      "title": "Mais Vontade Dá-me",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-76",
+      "number": "76",
+      "title": "Rocha Eterna",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-77",
+      "number": "77",
+      "title": "A Luz de Deus",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-78",
+      "number": "78",
+      "title": "Embora Cheios de Pesar",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-79",
+      "number": "79",
+      "title": "Ó Doce, Grata Oração",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-80",
+      "number": "80",
+      "title": "Santo Espírito de Deus",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-81",
+      "number": "81",
+      "title": "Secreta Oração",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-82",
+      "number": "82",
+      "title": "Eis-nos Agora Aqui",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-83",
+      "number": "83",
+      "title": "Com Fervor Fizeste a Prece?",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-84",
+      "number": "84",
+      "title": "Só por em Ti, Jesus, Pensar",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-85",
+      "number": "85",
+      "title": "Deus Vos Guarde",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-86",
+      "number": "86",
+      "title": "Nós Pedimos-te, Senhor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-87",
+      "number": "87",
+      "title": "Ó Bondoso Pai Eterno",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-88",
+      "number": "88",
+      "title": "Dá-nos, Tu, ó Pai Bondoso",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-89",
+      "number": "89",
+      "title": "Ao Partir Cantemos",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-90",
+      "number": "90",
+      "title": "Teu Santo Espírito, Senhor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-91",
+      "number": "91",
+      "title": "Qual Orvalho Que Cintila",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-92",
+      "number": "92",
+      "title": "Vai Fugindo o Dia",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-93",
+      "number": "93",
+      "title": "Suavemente a Noite Cai",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-94",
+      "number": "94",
+      "title": "Oração para a Noite",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-95",
+      "number": "95",
+      "title": "Eis-nos, Hoje, a Teus Pés",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-96",
+      "number": "96",
+      "title": "É Tarde, a Noite Logo Vem",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-97",
+      "number": "97",
+      "title": "Comigo Habita",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Oração e Súplica",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração",
+        "súplica"
+      ]
+    },
+    {
+      "id": "1991-98",
+      "number": "98",
+      "title": "Ó Deus, Senhor Eterno",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-99",
+      "number": "99",
+      "title": "Ao Partilhar de Teu Amor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-100",
+      "number": "100",
+      "title": "Entoai a Deus Louvor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-101",
+      "number": "101",
+      "title": "Deus, Escuta-nos Orar",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-102",
+      "number": "102",
+      "title": "Nossa Humilde Prece Atende",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-103",
+      "number": "103",
+      "title": "Enquanto Unidos em Amor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-104",
+      "number": "104",
+      "title": "Quão Grato É Cantar Louvor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-105",
+      "number": "105",
+      "title": "Cantemos Todos a Jesus",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-106",
+      "number": "106",
+      "title": "Jesus de Nazaré, Mestre e Rei",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-107",
+      "number": "107",
+      "title": "Deus Tal Amor por Nós Mostrou",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-108",
+      "number": "108",
+      "title": "Eis-nos à Mesa do Senhor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-109",
+      "number": "109",
+      "title": "Em uma Cruz Jesus Morreu",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-110",
+      "number": "110",
+      "title": "Vede, Morreu o Redentor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-111",
+      "number": "111",
+      "title": "Lembrando a Morte de Jesus",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-112",
+      "number": "112",
+      "title": "Assombro me Causa",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-113",
+      "number": "113",
+      "title": "No Monte do Calvário",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-114",
+      "number": "114",
+      "title": "Da Corte Celestial",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-115",
+      "number": "115",
+      "title": "Tão Humilde ao Nascer",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-116",
+      "number": "116",
+      "title": "Sobre o Calvário",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-117",
+      "number": "117",
+      "title": "Com Irmãos Nós Reunidos",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos Sacramentais",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento",
+        "expiação"
+      ]
+    },
+    {
+      "id": "1991-118",
+      "number": "118",
+      "title": "Manhã da Ressurreição",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Páscoa",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "páscoa",
+        "ressurreição"
+      ]
+    },
+    {
+      "id": "1991-119",
+      "number": "119",
+      "title": "Cristo É Já Ressuscitado",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Páscoa",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "páscoa",
+        "ressurreição"
+      ]
+    },
+    {
+      "id": "1991-120",
+      "number": "120",
+      "title": "Cristo Já Ressuscitou",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Páscoa",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "páscoa",
+        "ressurreição"
+      ]
+    },
+    {
+      "id": "1991-121",
+      "number": "121",
+      "title": "Mundo Feliz, Nasceu Jesus",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "1991-122",
+      "number": "122",
+      "title": "Erguei-vos Cantando",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "1991-123",
+      "number": "123",
+      "title": "Lá na Judéia, Onde Cristo Nasceu",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "1991-124",
+      "number": "124",
+      "title": "Anjos Descem a Cantar",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "1991-125",
+      "number": "125",
+      "title": "Ouvi os Sinos do Natal",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "1991-126",
+      "number": "126",
+      "title": "Noite Feliz",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "1991-127",
+      "number": "127",
+      "title": "Jesus num Presépio",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "1991-128",
+      "number": "128",
+      "title": "Na Bela Noite Se Ouviu",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "1991-129",
+      "number": "129",
+      "title": "Pequena Vila de Belém",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "1991-130",
+      "number": "130",
+      "title": "No Céu Desponta Nova Luz",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "1991-131",
+      "number": "131",
+      "title": "No Dia de Natal",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "1991-132",
+      "number": "132",
+      "title": "Eis dos Anjos a Harmonia",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "1991-133",
+      "number": "133",
+      "title": "Quando o Anjo Proclamou",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "1991-134",
+      "number": "134",
+      "title": "Sim, Eu Te Seguirei",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-135",
+      "number": "135",
+      "title": "Eu Devo Partilhar",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-136",
+      "number": "136",
+      "title": "Neste Mundo",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-137",
+      "number": "137",
+      "title": "Oh! Falemos Palavras Amáveis",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-138",
+      "number": "138",
+      "title": "Não Deixeis Palavras Duras",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-139",
+      "number": "139",
+      "title": "Deus É Consolador Sem Par",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-140",
+      "number": "140",
+      "title": "Ama o Pastor Seu Rebanho",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-141",
+      "number": "141",
+      "title": "Trabalhemos Hoje",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-142",
+      "number": "142",
+      "title": "Nossa Lei É Trabalhar",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-143",
+      "number": "143",
+      "title": "Pai, Inspira-me ao Ensinar",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-144",
+      "number": "144",
+      "title": "Mãos ao Trabalho",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-145",
+      "number": "145",
+      "title": "Sempre Que Alguém Nos Faz o Bem",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-146",
+      "number": "146",
+      "title": "Se a Vida É Penosa",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-147",
+      "number": "147",
+      "title": "Faze o Bem",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-148",
+      "number": "148",
+      "title": "Faze o Bem, Escolhendo o Que É Certo",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-149",
+      "number": "149",
+      "title": "A Alma É Livre",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-150",
+      "number": "150",
+      "title": "Quem Segue ao Senhor?",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-151",
+      "number": "151",
+      "title": "Minha Alma Hoje Tem a Luz",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-152",
+      "number": "152",
+      "title": "Prolongue os Bons Momentos",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-153",
+      "number": "153",
+      "title": "Deixa a Luz do Sol Entrar",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-154",
+      "number": "154",
+      "title": "Enquanto o Sol Brilha",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-155",
+      "number": "155",
+      "title": "Luz Espalhai",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-156",
+      "number": "156",
+      "title": "Agora Não, mas Logo Mais",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-157",
+      "number": "157",
+      "title": "Amor que Cristo Demonstrou",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-158",
+      "number": "158",
+      "title": "Tu Jesus, Ó Rocha Eterna",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-159",
+      "number": "159",
+      "title": "À Glória Nós Iremos",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-160",
+      "number": "160",
+      "title": "Somos os Soldados",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-161",
+      "number": "161",
+      "title": "As Hostes do Eterno",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-162",
+      "number": "162",
+      "title": "Com Valor Marchemos",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-163",
+      "number": "163",
+      "title": "Ide por Todo o Mundo",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-164",
+      "number": "164",
+      "title": "De Um a Outro Pólo",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-165",
+      "number": "165",
+      "title": "Semeando",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-166",
+      "number": "166",
+      "title": "Chamados a Servir",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-167",
+      "number": "167",
+      "title": "Aonde Mandares Irei",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-168",
+      "number": "168",
+      "title": "Povos da Terra, Vinde, Escutai!",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-169",
+      "number": "169",
+      "title": "Eis os Teus Filhos, Ó Senhor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-170",
+      "number": "170",
+      "title": "Avante, ao Mundo Proclamai",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-171",
+      "number": "171",
+      "title": "A Verdade o Que É?",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-172",
+      "number": "172",
+      "title": "A Verdade É Nosso Guia",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-173",
+      "number": "173",
+      "title": "Ao Raiar o Novo Dia",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-174",
+      "number": "174",
+      "title": "Sê Bem-vindo, Dia Santo",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-175",
+      "number": "175",
+      "title": "Do Pó Nos Fala uma Voz",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-176",
+      "number": "176",
+      "title": "Estudando as Escrituras",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-177",
+      "number": "177",
+      "title": "Ó Meu Pai",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-178",
+      "number": "178",
+      "title": "Ó Quão Majestosa É a Obra de Deus",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-179",
+      "number": "179",
+      "title": "Ó Jeová, Senhor do Céu",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-180",
+      "number": "180",
+      "title": "Já Refulge a Glória Eterna",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-181",
+      "number": "181",
+      "title": "O Fim Se Aproxima",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-182",
+      "number": "182",
+      "title": "Juventude da Promessa",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-183",
+      "number": "183",
+      "title": "Deve Sião Fugir à Luta?",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-184",
+      "number": "184",
+      "title": "Constantes Qual Firmes Montanhas",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-185",
+      "number": "185",
+      "title": "Quão Belos São",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-186",
+      "number": "186",
+      "title": "Levantai-vos, Ide ao Templo",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-187",
+      "number": "187",
+      "title": "Nós Dedicamos Esta Casa",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-188",
+      "number": "188",
+      "title": "Com Amor no Lar",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-189",
+      "number": "189",
+      "title": "Pode o Lar Ser Como o Céu",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Temas Especiais",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "1991-190",
+      "number": "190",
+      "title": "Os Teus Filhos, Pai Celeste",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos para Crianças",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "crianças"
+      ]
+    },
+    {
+      "id": "1991-191",
+      "number": "191",
+      "title": "As Famílias Poderão Ser Eternas",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos para Crianças",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "crianças"
+      ]
+    },
+    {
+      "id": "1991-192",
+      "number": "192",
+      "title": "Ó Crianças, Deus Vos Ama",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos para Crianças",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "crianças"
+      ]
+    },
+    {
+      "id": "1991-193",
+      "number": "193",
+      "title": "Sou um Filho de Deus",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos para Crianças",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "crianças"
+      ]
+    },
+    {
+      "id": "1991-194",
+      "number": "194",
+      "title": "Guarda os Mandamentos",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos para Crianças",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "crianças"
+      ]
+    },
+    {
+      "id": "1991-195",
+      "number": "195",
+      "title": "Eu Sei que Deus Vive",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos para Crianças",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "crianças"
+      ]
+    },
+    {
+      "id": "1991-196",
+      "number": "196",
+      "title": "Nas Montanhas de Sião",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos para Crianças",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "crianças"
+      ]
+    },
+    {
+      "id": "1991-197",
+      "number": "197",
+      "title": "Amai-vos Uns aos Outros",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos para Crianças",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "crianças"
+      ]
+    },
+    {
+      "id": "1991-198",
+      "number": "198",
+      "title": "Quando Vejo o Sol Raiar",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos para Crianças",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "crianças"
+      ]
+    },
+    {
+      "id": "1991-199",
+      "number": "199",
+      "title": "Faz-me Andar Só na Luz",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Hinos para Crianças",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "crianças"
+      ]
+    },
+    {
+      "id": "1991-200",
+      "number": "200",
+      "title": "Irmãs em Sião",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Para Vozes Femininas",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "coral"
+      ]
+    },
+    {
+      "id": "1991-201",
+      "number": "201",
+      "title": "Ó Filhos do Senhor",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Para Vozes Masculinas",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "coral"
+      ]
+    },
+    {
+      "id": "1991-202",
+      "number": "202",
+      "title": "Brilham Raios de Clemência",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Para Vozes Masculinas",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "coral"
+      ]
+    },
+    {
+      "id": "1991-203",
+      "number": "203",
+      "title": "Ó Élderes de Israel",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Para Vozes Masculinas",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "coral"
+      ]
+    },
+    {
+      "id": "1991-204",
+      "number": "204",
+      "title": "Ó Vós, Que Sois Chamados",
+      "hymnal": "1991",
+      "hymnal_name": "Hinos (1991)",
+      "category": "Para Vozes Masculinas",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "coral"
+      ]
+    },
+    {
+      "id": "novo-1001",
+      "number": "1001",
+      "title": "Ó Senhor de toda bênção",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Louvor",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor"
+      ]
+    },
+    {
+      "id": "novo-1002",
+      "number": "1002",
+      "title": "Quando o Salvador voltar",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Segunda Vinda",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "segunda vinda"
+      ]
+    },
+    {
+      "id": "novo-1003",
+      "number": "1003",
+      "title": "Minha alma tem paz",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Paz",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "paz"
+      ]
+    },
+    {
+      "id": "novo-1004",
+      "number": "1004",
+      "title": "Quero andar com Cristo",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Discipulado",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "novo-1005",
+      "number": "1005",
+      "title": "Do passarinho cuida",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Cuidado divino",
+      "roles": [
+        "closing",
+        "special"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "cuidado divino"
+      ]
+    },
+    {
+      "id": "novo-1006",
+      "number": "1006",
+      "title": "Pense na canção",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Música",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "música"
+      ]
+    },
+    {
+      "id": "novo-1007",
+      "number": "1007",
+      "title": "Partido o pão",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Sacramento",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento"
+      ]
+    },
+    {
+      "id": "novo-1008",
+      "number": "1008",
+      "title": "Pão do Céu, Água Viva",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Sacramento",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento"
+      ]
+    },
+    {
+      "id": "novo-1009",
+      "number": "1009",
+      "title": "Getsêmani",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Expiação",
+      "roles": [
+        "sacrament",
+        "special"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "expiação"
+      ]
+    },
+    {
+      "id": "novo-1010",
+      "number": "1010",
+      "title": "Sublime graça",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Graça",
+      "roles": [
+        "opening",
+        "special",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "graça"
+      ]
+    },
+    {
+      "id": "novo-1011",
+      "number": "1011",
+      "title": "De mãos dadas em união",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Unidade",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "unidade"
+      ]
+    },
+    {
+      "id": "novo-1012",
+      "number": "1012",
+      "title": "A qualquer hora ou lugar",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Oração",
+      "roles": [
+        "closing",
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "oração"
+      ]
+    },
+    {
+      "id": "novo-1013",
+      "number": "1013",
+      "title": "O amor de Deus",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Amor de Deus",
+      "roles": [
+        "opening",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "amor de deus"
+      ]
+    },
+    {
+      "id": "novo-1014",
+      "number": "1014",
+      "title": "O meu Pastor vai me amparar",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Pastor",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "pastor"
+      ]
+    },
+    {
+      "id": "novo-1015",
+      "number": "1015",
+      "title": "O profundo amor de Cristo",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Expiação",
+      "roles": [
+        "sacrament",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "expiação"
+      ]
+    },
+    {
+      "id": "novo-1016",
+      "number": "1016",
+      "title": "Olhai as mãos do Redentor",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Expiação",
+      "roles": [
+        "sacrament",
+        "special"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "expiação"
+      ]
+    },
+    {
+      "id": "novo-1017",
+      "number": "1017",
+      "title": "Este é o Cristo",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Cristo",
+      "roles": [
+        "special",
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "cristo"
+      ]
+    },
+    {
+      "id": "novo-1018",
+      "number": "1018",
+      "title": "Vem, ó Jesus! Vem!",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Segunda Vinda",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "segunda vinda"
+      ]
+    },
+    {
+      "id": "novo-1019",
+      "number": "1019",
+      "title": "Desejo me tornar como Cristo",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Discipulado",
+      "roles": [
+        "closing",
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "novo-1020",
+      "number": "1020",
+      "title": "O Salvador ternamente nos chama",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Convite",
+      "roles": [
+        "opening",
+        "closing",
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "convite"
+      ]
+    },
+    {
+      "id": "novo-1021",
+      "number": "1021",
+      "title": "Que Cristo me ama eu sei",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Amor de Cristo",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "amor de cristo"
+      ]
+    },
+    {
+      "id": "novo-1022",
+      "number": "1022",
+      "title": "Fé a cada passo",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Fé",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "fé"
+      ]
+    },
+    {
+      "id": "novo-1023",
+      "number": "1023",
+      "title": "Firme nas promessas",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Fé",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "fé"
+      ]
+    },
+    {
+      "id": "novo-1024",
+      "number": "1024",
+      "title": "Tenho fé em Jesus, meu Senhor",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Fé",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "fé"
+      ]
+    },
+    {
+      "id": "novo-1025",
+      "number": "1025",
+      "title": "Consagro meu coração em retidão",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Consagração",
+      "roles": [
+        "closing",
+        "special"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "consagração"
+      ]
+    },
+    {
+      "id": "novo-1026",
+      "number": "1026",
+      "title": "Lugares santos",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Templo",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "templo"
+      ]
+    },
+    {
+      "id": "novo-1027",
+      "number": "1027",
+      "title": "Ao virmos, hoje, adorar",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Adoração",
+      "roles": [
+        "opening"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "adoração"
+      ]
+    },
+    {
+      "id": "novo-1028",
+      "number": "1028",
+      "title": "Tenho uma luz em mim",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Testemunho",
+      "roles": [
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "testemunho"
+      ]
+    },
+    {
+      "id": "novo-1029",
+      "number": "1029",
+      "title": "Muitas bênçãos recebo",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Gratidão",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "gratidão"
+      ]
+    },
+    {
+      "id": "novo-1030",
+      "number": "1030",
+      "title": "Tão perto ao orar",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Oração",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração"
+      ]
+    },
+    {
+      "id": "novo-1031",
+      "number": "1031",
+      "title": "Ó, vinde, ouvi a voz divina",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Revelação",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "revelação"
+      ]
+    },
+    {
+      "id": "novo-1032",
+      "number": "1032",
+      "title": "Buscai a Cristo",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Discipulado",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "novo-1033",
+      "number": "1033",
+      "title": "Oh, que grande alegria é servir",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Serviço",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "serviço"
+      ]
+    },
+    {
+      "id": "novo-1034",
+      "number": "1034",
+      "title": "Pioneiros como eu",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Pioneiros",
+      "roles": [
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "pioneiros"
+      ]
+    },
+    {
+      "id": "novo-1035",
+      "number": "1035",
+      "title": "Neste Dia do Senhor",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Sábado",
+      "roles": [
+        "opening",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "sábado"
+      ]
+    },
+    {
+      "id": "novo-1036",
+      "number": "1036",
+      "title": "O Livro de Mórmon vou ler",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Escrituras",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "escrituras"
+      ]
+    },
+    {
+      "id": "novo-1037",
+      "number": "1037",
+      "title": "Vou viver para a Deus servir",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Serviço",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "serviço"
+      ]
+    },
+    {
+      "id": "novo-1038",
+      "number": "1038",
+      "title": "O meu Senhor é meu Pastor",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Pastor",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "pastor"
+      ]
+    },
+    {
+      "id": "novo-1039",
+      "number": "1039",
+      "title": "Porque",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Discipulado",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "discipulado"
+      ]
+    },
+    {
+      "id": "novo-1040",
+      "number": "1040",
+      "title": "Sua voz a soar",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Cristo",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "cristo"
+      ]
+    },
+    {
+      "id": "novo-1041",
+      "number": "1041",
+      "title": "Meu coração é Teu, Jesus",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Expiação",
+      "roles": [
+        "sacrament",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "expiação"
+      ]
+    },
+    {
+      "id": "novo-1042",
+      "number": "1042",
+      "title": "Bondoso Deus, que nos conduz",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Louvor",
+      "roles": [
+        "opening",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "louvor"
+      ]
+    },
+    {
+      "id": "novo-1043",
+      "number": "1043",
+      "title": "Faz-nos lembrar",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Sacramento",
+      "roles": [
+        "sacrament"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "sacramento"
+      ]
+    },
+    {
+      "id": "novo-1044",
+      "number": "1044",
+      "title": "Cristo a todos ministrou",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Ministério",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "ministério"
+      ]
+    },
+    {
+      "id": "novo-1045",
+      "number": "1045",
+      "title": "“Vinde a Mim”, diz Jesus",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Convite",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "convite"
+      ]
+    },
+    {
+      "id": "novo-1046",
+      "number": "1046",
+      "title": "Há no céu muitas estrelas",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Criação",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "criação"
+      ]
+    },
+    {
+      "id": "novo-1047",
+      "number": "1047",
+      "title": "Ele me conhece bem",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Amor de Deus",
+      "roles": [
+        "closing",
+        "special"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "amor de deus"
+      ]
+    },
+    {
+      "id": "novo-1048",
+      "number": "1048",
+      "title": "A Ti oramos, Pai Celeste",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Oração",
+      "roles": [
+        "opening",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "oração"
+      ]
+    },
+    {
+      "id": "novo-1049",
+      "number": "1049",
+      "title": "Posso orar como Joseph orou",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Oração",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "oração"
+      ]
+    },
+    {
+      "id": "novo-1050",
+      "number": "1050",
+      "title": "Oh, que estejas junto a mim",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Consolo",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "consolo"
+      ]
+    },
+    {
+      "id": "novo-1051",
+      "number": "1051",
+      "title": "Senhor, oh, que dia bom!",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Gratidão",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "gratidão"
+      ]
+    },
+    {
+      "id": "novo-1052",
+      "number": "1052",
+      "title": "Com eterna alegria e paz",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Convênios",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "convênios"
+      ]
+    },
+    {
+      "id": "novo-1053",
+      "number": "1053",
+      "title": "Meus convênios",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Convênios",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "convênios"
+      ]
+    },
+    {
+      "id": "novo-1054",
+      "number": "1054",
+      "title": "Quando eu for batizado",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Batismo",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "batismo"
+      ]
+    },
+    {
+      "id": "novo-1055",
+      "number": "1055",
+      "title": "O Espírito vem testificar",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Espírito Santo",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "espírito santo"
+      ]
+    },
+    {
+      "id": "novo-1056",
+      "number": "1056",
+      "title": "Elias e a mansa voz",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Revelação",
+      "roles": [
+        "special"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "revelação"
+      ]
+    },
+    {
+      "id": "novo-1057",
+      "number": "1057",
+      "title": "Meu pastor é Jesus Cristo",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Pastor",
+      "roles": [
+        "closing",
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "pastor"
+      ]
+    },
+    {
+      "id": "novo-1058",
+      "number": "1058",
+      "title": "Na noite, és minha canção",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Consolo",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "consolo"
+      ]
+    },
+    {
+      "id": "novo-1059",
+      "number": "1059",
+      "title": "O mundo Deus criou",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Criação",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "criação"
+      ]
+    },
+    {
+      "id": "novo-1060",
+      "number": "1060",
+      "title": "Uma arca hoje eu construirei",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Obediência",
+      "roles": [
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "obediência"
+      ]
+    },
+    {
+      "id": "novo-1061",
+      "number": "1061",
+      "title": "Nosso lar tem amor",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Família",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "família"
+      ]
+    },
+    {
+      "id": "novo-1062",
+      "number": "1062",
+      "title": "Que meu jejum venhas aceitar",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Jejum",
+      "roles": [
+        "sacrament",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "jejum"
+      ]
+    },
+    {
+      "id": "novo-1063",
+      "number": "1063",
+      "title": "Paz, não temais",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Paz",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "paz"
+      ]
+    },
+    {
+      "id": "novo-1064",
+      "number": "1064",
+      "title": "Sempre és fiel, Senhor!",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Louvor",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor"
+      ]
+    },
+    {
+      "id": "novo-1065",
+      "number": "1065",
+      "title": "Profetizou Isaías",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Profecia",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "profecia"
+      ]
+    },
+    {
+      "id": "novo-1066",
+      "number": "1066",
+      "title": "O bom combate, combater",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Fé",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "fé"
+      ]
+    },
+    {
+      "id": "novo-1067",
+      "number": "1067",
+      "title": "É bom viver o evangelho",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Evangelho",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "evangelho"
+      ]
+    },
+    {
+      "id": "novo-1068",
+      "number": "1068",
+      "title": "A Deus seja a glória",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Louvor",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "louvor"
+      ]
+    },
+    {
+      "id": "novo-1069",
+      "number": "1069",
+      "title": "Deus, fala a nós",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Revelação",
+      "roles": [
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "revelação"
+      ]
+    },
+    {
+      "id": "novo-1070",
+      "number": "1070",
+      "title": "O milagre",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Milagres",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "milagres"
+      ]
+    },
+    {
+      "id": "novo-1071",
+      "number": "1071",
+      "title": "É o que ensina o Senhor",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Ensinamento",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "ensinamento"
+      ]
+    },
+    {
+      "id": "novo-1072",
+      "number": "1072",
+      "title": "Quando relembro a triste cruz",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Expiação",
+      "roles": [
+        "sacrament",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "expiação"
+      ]
+    },
+    {
+      "id": "novo-1201",
+      "number": "1201",
+      "title": "Eis a Páscoa do Senhor",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Páscoa",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "páscoa"
+      ]
+    },
+    {
+      "id": "novo-1202",
+      "number": "1202",
+      "title": "O menino Jesus nasceu",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "novo-1203",
+      "number": "1203",
+      "title": "Quem é o menino?",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "novo-1204",
+      "number": "1204",
+      "title": "Estrela brilhante e bela",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Natal",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "novo-1205",
+      "number": "1205",
+      "title": "Na Páscoa do Senhor",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Páscoa",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "páscoa"
+      ]
+    },
+    {
+      "id": "novo-1206",
+      "number": "1206",
+      "title": "Você viu?",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Expiação",
+      "roles": [
+        "sacrament",
+        "special"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "expiação"
+      ]
+    },
+    {
+      "id": "novo-1207",
+      "number": "1207",
+      "title": "Noite de paz",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Natal",
+      "roles": [
+        "special",
+        "closing"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "novo-1208",
+      "number": "1208",
+      "title": "Ao mundo proclamai",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Natal",
+      "roles": [
+        "opening",
+        "special"
+      ],
+      "tempo": "animated",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "novo-1209",
+      "number": "1209",
+      "title": "Bebezinho no presépio",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Natal",
+      "roles": [
+        "special"
+      ],
+      "tempo": "moderate",
+      "themes": [
+        "natal"
+      ]
+    },
+    {
+      "id": "novo-1210",
+      "number": "1210",
+      "title": "Os jardins",
+      "hymnal": "novo",
+      "hymnal_name": "Hinos — Para o Lar e para a Igreja",
+      "category": "Expiação",
+      "roles": [
+        "sacrament",
+        "special"
+      ],
+      "tempo": "reflective",
+      "themes": [
+        "expiação"
+      ]
+    }
+  ]
+}

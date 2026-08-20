@@ -1,0 +1,26 @@
+{
+    "name": "Agenda Sacramental",
+    "short_name": "Sacramental",
+    "description": "Prepare a agenda da reunião sacramental da sua unidade.",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#002D5B",
+    "theme_color": "#002D5B",
+    "orientation": "portrait-primary",
+    "lang": "pt-BR",
+    "icons": [
+        {
+            "src": "assets/sacramental-logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/sacramental-logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

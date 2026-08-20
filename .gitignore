@@ -1,0 +1,30 @@
+# Credenciais e configuração local (senhas, SMTP, admin)
+includes/config.local.php
+.env
+.env.*
+!.env.example
+
+# Banco SQLite com dados de usuários, reuniões e hashes de senha
+data/*.db
+data/*.db-*
+data/*.sqlite
+data/*.sqlite3
+
+# Logs e temporários
+*.log
+*.tmp
+*.bak
+*~
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Git / ferramentas locais (não enviar ao HostGator)
+.git/
+.cursor/
