@@ -56,7 +56,7 @@ cp includes/config.example.php includes/config.local.php
    - `SESSION_LIFETIME_DAYS` — dias logado (padrão `90`)
    - `APP_ASSET_VERSION` — incremente ao publicar JS/CSS novos (`2`, `3`…)
    - SMTP (`MAIL_*`) se quiser “esqueci minha senha”
-4. Acesse `http://localhost/sacramental/`.
+4. Acesse `http://altasoftware.com.br/sacramental/`.
 5. Use **Primeiro acesso** e cadastre número e nome da unidade.
 6. Unidades já existentes **não** podem ser re-registradas; líderes adicionam usuários em **Configurações**.
 
