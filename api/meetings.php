@@ -71,7 +71,9 @@ function defaultMeetingPayload(array $user, array $prefs, string $date): array
         'closing_prayer' => '',
         'announcements' => '',
         'ward_business' => emptyWardBusiness(),
+        'visiting_leaders' => [],
         'speakers' => [],
+        'program_items' => [],
         'is_fast_sunday' => false,
         'musical_number' => ['who' => '', 'piece' => ''],
         'notes' => '',
@@ -288,7 +290,16 @@ function handleDelete(PDO $pdo, int $unitId): void
 {
     $data = readJsonBody();
     $id = (int) ($data['id'] ?? 0);
-    $pdo->prepare('DELETE FROM meetings WHERE id = :id AND unit_id = :u')->execute([':id' => $id, ':u' => $unitId]);
+    if ($id <= 0) {
+        jsonResponse(['error' => 'Reunião inválida.'], 400);
+    }
+
+    $stmt = $pdo->prepare('DELETE FROM meetings WHERE id = :id AND unit_id = :u');
+    $stmt->execute([':id' => $id, ':u' => $unitId]);
+    if ($stmt->rowCount() < 1) {
+        jsonResponse(['error' => 'Reunião não encontrada.'], 404);
+    }
+
     jsonResponse(['success' => true]);
 }
 
@@ -307,6 +318,9 @@ function handleSave(PDO $pdo, array $user, int $unitId): void
         return encodeJsonField($value);
     };
 
+    $programItems = sanitizeProgramItems($data['program_items'] ?? []);
+    $legacy = syncLegacyFieldsFromProgram($programItems);
+
     $fields = [
         'meeting_type' => (string) ($data['meeting_type'] ?? 'sacramental'),
         'special_note' => trim((string) ($data['special_note'] ?? '')),
@@ -318,15 +332,17 @@ function handleSave(PDO $pdo, array $user, int $unitId): void
         'pianist' => trim((string) ($data['pianist'] ?? '')),
         'opening_hymn' => $hymn($data['opening_hymn'] ?? null),
         'sacrament_hymn' => $hymn($data['sacrament_hymn'] ?? null),
-        'special_hymn' => $hymn($data['special_hymn'] ?? null),
+        'special_hymn' => $hymn($legacy['special_hymn']),
         'closing_hymn' => $hymn($data['closing_hymn'] ?? null),
         'opening_prayer' => trim((string) ($data['opening_prayer'] ?? '')),
         'closing_prayer' => trim((string) ($data['closing_prayer'] ?? '')),
         'announcements' => trim((string) ($data['announcements'] ?? '')),
         'ward_business' => encodeJsonField($data['ward_business'] ?? emptyWardBusiness()),
-        'speakers' => encodeJsonField($data['speakers'] ?? []),
+        'visiting_leaders' => encodeJsonField(sanitizeVisitingLeaders($data['visiting_leaders'] ?? [])),
+        'speakers' => encodeJsonField($legacy['speakers']),
+        'program_items' => encodeJsonField($programItems),
         'is_fast_sunday' => !empty($data['is_fast_sunday']) ? 1 : 0,
-        'musical_number' => encodeJsonField($data['musical_number'] ?? ['who' => '', 'piece' => '']),
+        'musical_number' => encodeJsonField($legacy['musical_number']),
         'notes' => trim((string) ($data['notes'] ?? '')),
         'updated_by' => (int) $user['id'],
         'updated_at' => appNow(),

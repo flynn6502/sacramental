@@ -9,6 +9,10 @@ data/*.db
 data/*.db-*
 data/*.sqlite
 data/*.sqlite3
+data/sessions/
+
+# Diagnóstico temporário (não publicar)
+health.php
 
 # Logs e temporários
 *.log
@@ -25,6 +29,5 @@ desktop.ini
 *.swp
 *.swo
 
-# Git / ferramentas locais (não enviar ao HostGator)
-.git/
+# Ferramentas locais
 .cursor/

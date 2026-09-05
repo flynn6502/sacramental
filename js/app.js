@@ -15,6 +15,37 @@
     const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
     const TZ_BR = 'America/Sao_Paulo';
 
+    let confirmResolver = null;
+
+    function closeAppConfirm(result) {
+        const overlay = $('#appConfirm');
+        if (!overlay) return;
+        overlay.classList.add('hidden');
+        overlay.setAttribute('aria-hidden', 'true');
+        const resolve = confirmResolver;
+        confirmResolver = null;
+        if (resolve) resolve(!!result);
+    }
+
+    function askConfirm(options) {
+        const opts = options || {};
+        return new Promise((resolve) => {
+            if (confirmResolver) {
+                confirmResolver(false);
+                confirmResolver = null;
+            }
+            confirmResolver = resolve;
+            $('#appConfirmTitle').textContent = opts.title || 'Confirmar?';
+            $('#appConfirmMessage').textContent = opts.message || 'Essa ação não pode ser desfeita.';
+            $('#appConfirmOk').textContent = opts.confirmLabel || 'Remover';
+            $('#appConfirmCancel').textContent = opts.cancelLabel || 'Cancelar';
+            const overlay = $('#appConfirm');
+            overlay.classList.remove('hidden');
+            overlay.setAttribute('aria-hidden', 'false');
+            $('#appConfirmCancel').focus();
+        });
+    }
+
     function partValue(parts, type) {
         const part = parts.find(function (p) { return p.type === type; });
         return part ? part.value : '';
@@ -262,38 +293,162 @@
         return {
             opening_hymn: 'Hino de abertura',
             sacrament_hymn: 'Hino sacramental',
-            special_hymn: 'Hino especial / intermediário',
+            special_hymn: 'Hino intermediário',
             closing_hymn: 'Hino de encerramento',
         }[slot] || slot;
     }
 
-    function businessRows(list, type) {
-        const items = list && list.length ? list : [{ name: '', calling: '' }];
+    function normalizeProgramItems(meeting) {
+        if (Array.isArray(meeting.program_items) && meeting.program_items.length) {
+            return meeting.program_items.map((item) => Object.assign({}, item));
+        }
+        const items = [];
+        const musical = meeting.musical_number || {};
+        if (String(musical.who || '').trim() || String(musical.piece || '').trim() || meeting.show_musical_number) {
+            items.push({ type: 'musical', who: musical.who || '', piece: musical.piece || '' });
+        }
+        if ((meeting.special_hymn && meeting.special_hymn.title) || meeting.show_special_hymn) {
+            items.push({ type: 'hymn', hymn: meeting.special_hymn || null });
+        }
+        (Array.isArray(meeting.speakers) ? meeting.speakers : []).forEach((s) => {
+            items.push({
+                type: 'speaker',
+                name: s.name || '',
+                topic: s.topic || '',
+                duration: s.duration || '',
+                role: s.role || 'adulto',
+            });
+        });
+        return items;
+    }
+
+    function programMoveControls(idx, total) {
+        return `
+            <div class="program-move">
+                <button type="button" class="btn-program-move" data-move="up" data-idx="${idx}" ${idx === 0 ? 'disabled' : ''} title="Subir" aria-label="Subir">▲</button>
+                <button type="button" class="btn-program-move" data-move="down" data-idx="${idx}" ${idx >= total - 1 ? 'disabled' : ''} title="Descer" aria-label="Descer">▼</button>
+            </div>`;
+    }
+
+    function programCardHeader(title, idx, total) {
+        return `
+            <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+                <div class="d-flex align-items-center gap-2">
+                    ${programMoveControls(idx, total)}
+                    <strong>${escapeHtml(title)}</strong>
+                </div>
+                <button type="button" class="btn btn-sm btn-link text-danger p-0 btn-del-program" data-idx="${idx}">remover</button>
+            </div>`;
+    }
+
+    function renderProgramSection(meeting) {
+        const isFast = !!meeting.is_fast_sunday;
+        const items = normalizeProgramItems(meeting).filter((item) => !isFast || item.type !== 'speaker');
+        let speakerN = 0;
+        const cards = items.map((item, idx) => {
+            let speakerLabel = null;
+            if ((item.type || 'speaker') === 'speaker') {
+                speakerN += 1;
+                speakerLabel = speakerN;
+            }
+            return programItemCard(item, idx, items.length, speakerLabel);
+        }).join('');
+        const fastNote = isFast
+            ? '<p class="small mb-2">No domingo de jejum, o tempo após o sacramento é reservado aos testemunhos.</p>'
+            : '';
+        return `${fastNote}<div id="programWrap">${cards}</div>${programAddButtons(isFast)}`;
+    }
+
+    function programItemCard(item, idx, total, speakerLabel) {
+        const type = item.type || 'speaker';
+        if (type === 'musical') {
+            return `
+                <div class="speaker-card program-card" data-idx="${idx}" data-type="musical">
+                    ${programCardHeader('Número musical', idx, total)}
+                    <div class="row g-2">
+                        <div class="col-6"><input class="form-control prog-who" placeholder="Quem apresenta" value="${escapeHtml(item.who || '')}"></div>
+                        <div class="col-6"><input class="form-control prog-piece" placeholder="Peça / hino" value="${escapeHtml(item.piece || '')}"></div>
+                    </div>
+                </div>`;
+        }
+        if (type === 'hymn') {
+            const hymn = item.hymn || null;
+            const label = hymnLabel(hymn);
+            const slot = 'program_hymn_' + idx;
+            return `
+                <div class="speaker-card program-card" data-idx="${idx}" data-type="hymn">
+                    ${programCardHeader('Hino intermediário', idx, total)}
+                    <div class="hymn-picker mb-0" data-slot="${slot}">
+                        <input class="form-control hymn-input" placeholder="Buscar por número ou título" value="${escapeHtml(label)}" autocomplete="off">
+                        <input type="hidden" class="hymn-json" value='${escapeHtml(JSON.stringify(hymn))}'>
+                        <div class="hymn-meta mt-1">${hymn && hymn.hymnal_name ? escapeHtml(hymn.hymnal_name) : ''}</div>
+                        <div class="hymn-results hidden"></div>
+                    </div>
+                </div>`;
+        }
+        return `
+            <div class="speaker-card program-card" data-idx="${idx}" data-type="speaker">
+                ${programCardHeader('Discursante ' + (speakerLabel || idx + 1), idx, total)}
+                <div class="row g-2">
+                    <div class="col-12"><input class="form-control sp-name" placeholder="Nome" value="${escapeHtml(item.name || '')}"></div>
+                    <div class="col-12"><input class="form-control sp-topic" placeholder="Tema" value="${escapeHtml(item.topic || '')}"></div>
+                    <div class="col-6"><input class="form-control sp-duration" placeholder="Tempo (min)" value="${escapeHtml(item.duration || '')}"></div>
+                    <div class="col-6"><select class="form-select sp-role">
+                        ${option('jovem', item.role, 'Jovem')}${option('adulto', item.role, 'Adulto')}
+                        ${option('principal', item.role, 'Orador principal')}${option('visitante', item.role, 'Autoridade visitante')}
+                    </select></div>
+                </div>
+            </div>`;
+    }
+
+    function programAddButtons(isFast) {
+        let html = '<div class="d-flex flex-wrap gap-2 mt-2 mb-1" id="programAddBtns">';
+        if (!isFast) {
+            html += '<button type="button" class="btn btn-outline-navy btn-sm" id="btnAddSpeaker">Adicionar discursante</button>';
+        }
+        html += '<button type="button" class="btn btn-outline-navy btn-sm" id="btnAddMusical">Adicionar Número Musical</button>';
+        html += '<button type="button" class="btn btn-outline-navy btn-sm" id="btnAddSpecialHymn">Adicionar Hino Intermediário</button>';
+        html += '</div>';
+        return html;
+    }
+
+    function businessRows(list, type, options) {
+        const opts = options || {};
+        const allowBlank = opts.allowBlank !== false;
+        let items = Array.isArray(list) ? list.slice() : [];
+        if (!items.length && allowBlank) items = [{ name: '', calling: '' }];
+        if (!items.length) return '';
         return items.map((item, i) => (
-            '<div class="row g-2 mb-2 biz-row" data-type="' + type + '">' +
-            '<div class="col-6"><input class="form-control form-control-sm biz-name" placeholder="Nome" value="' + escapeHtml(item.name || '') + '"></div>' +
-            '<div class="col-6"><input class="form-control form-control-sm biz-calling" placeholder="Chamado" value="' + escapeHtml(item.calling || '') + '"></div></div>'
+            '<div class="biz-row" data-type="' + type + '" data-idx="' + i + '">' +
+            '<div class="biz-row-head">' +
+            '<span class="biz-row-index">' + (i + 1) + '</span>' +
+            '<button type="button" class="btn btn-sm btn-link text-danger p-0 btn-del-biz" data-type="' + type + '" data-idx="' + i + '"' +
+            (items.length <= 1 && allowBlank ? ' disabled aria-hidden="true" style="visibility:hidden"' : '') +
+            '>remover</button></div>' +
+            '<label class="biz-field-label">Nome</label>' +
+            '<input class="form-control biz-name" placeholder="Nome completo" value="' + escapeHtml(item.name || '') + '" autocomplete="name">' +
+            '<label class="biz-field-label">Chamado</label>' +
+            '<input class="form-control biz-calling" placeholder="Chamado" value="' + escapeHtml(item.calling || '') + '">' +
+            '</div>'
         )).join('');
     }
 
-    function speakerCards(speakers, isFast) {
-        if (isFast) {
-            return '<p class="small mb-0">Neste domingo de jejum, o tempo após o sacramento é reservado aos testemunhos da congregação, conduzidos pelo Espírito.</p>';
-        }
-        const list = Array.isArray(speakers) ? speakers : [];
-        return list.map((s, i) => (
-            '<div class="speaker-card" data-idx="' + i + '">' +
-            '<div class="d-flex justify-content-between mb-2"><strong>Discursante ' + (i + 1) + '</strong>' +
-            '<button type="button" class="btn btn-sm btn-link text-danger p-0 btn-del-speaker">remover</button></div>' +
-            '<div class="row g-2">' +
-            '<div class="col-12"><input class="form-control sp-name" placeholder="Nome" value="' + escapeHtml(s.name || '') + '"></div>' +
-            '<div class="col-12"><input class="form-control sp-topic" placeholder="Tema" value="' + escapeHtml(s.topic || '') + '"></div>' +
-            '<div class="col-6"><input class="form-control sp-duration" placeholder="Tempo (min)" value="' + escapeHtml(s.duration || '') + '"></div>' +
-            '<div class="col-6"><select class="form-select sp-role">' +
-            option('jovem', s.role, 'Jovem') + option('adulto', s.role, 'Adulto') +
-            option('principal', s.role, 'Orador principal') + option('visitante', s.role, 'Autoridade visitante') +
-            '</select></div></div></div>'
-        )).join('') + '<button type="button" class="btn btn-outline-navy btn-sm" id="btnAddSpeaker">Adicionar discursante</button>';
+    function businessSection(label, type, list, addLabel, options) {
+        const opts = options || {};
+        return `
+            <div class="biz-section ${opts.className || 'mb-3'}">
+                <label class="form-label">${escapeHtml(label)}</label>
+                <div id="biz-${type}">${businessRows(list, type, opts)}</div>
+                <button type="button" class="btn btn-outline-navy btn-sm btn-add-biz" data-type="${type}">${escapeHtml(addLabel)}</button>
+            </div>`;
+    }
+
+    function recognitionField(id, label, value, listId) {
+        return `
+            <div class="recog-field">
+                <label class="biz-field-label" for="${id}">${escapeHtml(label)}</label>
+                <input class="form-control" id="${id}" ${listId ? 'list="' + listId + '"' : ''} value="${escapeHtml(value || '')}" autocomplete="name">
+            </div>`;
     }
 
     function option(val, cur, label) {
@@ -325,8 +480,9 @@
                         <p class="small text-muted mb-0">${escapeHtml(displayDate(meeting))}${meeting.is_fast_sunday && !special ? ' · Jejum e testemunhos' : ''}</p>
                     </div>
                     <div class="d-flex gap-2 flex-wrap">
+                        <button class="btn btn-outline-navy btn-sm" id="btnPng">Baixar PNG</button>
                         <button class="btn btn-outline-navy btn-sm" id="btnPdf">Baixar PDF</button>
-                        <button class="btn btn-navy btn-sm" id="btnSave">Salvar agenda</button>
+                        <button class="btn btn-navy btn-sm btn-save-agenda" type="button">Salvar</button>
                     </div>
                 </div>
             </div>
@@ -343,8 +499,7 @@
             </div>
             <div id="sacramentalFields" class="${special ? 'hidden' : ''}">
                 <div class="card-soft">
-                    <h2>Frequência — registrar no início</h2>
-                    <p class="small text-muted">Espaço para quem dirige anotar membros e visitantes antes de começar.</p>
+                    <h2>Frequência</h2>
                     <div class="attendance-grid">
                         <div><label class="form-label">Membros</label><input type="number" min="0" class="form-control" id="membersCount" value="${escapeHtml(members)}"></div>
                         <div><label class="form-label">Visitantes</label><input type="number" min="0" class="form-control" id="visitorsCount" value="${escapeHtml(visitors)}"></div>
@@ -352,15 +507,18 @@
                     </div>
                 </div>
                 <div class="card-soft">
-                    <h2>Presidência e música</h2>
-                    <div class="person-row">
-                        <div><label class="form-label">Preside</label><input class="form-control" id="presides" list="dl-preside" value="${escapeHtml(meeting.presides || '')}"></div>
-                        <div><label class="form-label">Dirige</label><input class="form-control" id="conducts" list="dl-conduct" value="${escapeHtml(meeting.conducts || '')}"></div>
-                        <div><label class="form-label">Regente</label><input class="form-control" id="chorister" list="dl-chorister" value="${escapeHtml(meeting.chorister || '')}"></div>
-                        <div><label class="form-label">Piano / órgão</label><input class="form-control" id="pianist" list="dl-pianist" value="${escapeHtml(meeting.pianist || '')}"></div>
+                    <h2>Reconhecimentos</h2>
+                    <div class="recog-stack">
+                        ${recognitionField('presides', 'Preside', meeting.presides, 'dl-preside')}
+                        ${recognitionField('conducts', 'Dirige', meeting.conducts, 'dl-conduct')}
                     </div>
                     ${namesDatalist('dl-preside', prefs.preside_names)}
                     ${namesDatalist('dl-conduct', prefs.conduct_names)}
+                    ${businessSection('Líderes visitantes', 'visiting_leaders', meeting.visiting_leaders || [], 'Adicionar líder visitante', { allowBlank: false, className: 'mb-3 mt-3' })}
+                    <div class="recog-stack">
+                        ${recognitionField('chorister', 'Regente', meeting.chorister, 'dl-chorister')}
+                        ${recognitionField('pianist', 'Piano / órgão', meeting.pianist, 'dl-pianist')}
+                    </div>
                     ${namesDatalist('dl-chorister', prefs.chorister_names)}
                     ${namesDatalist('dl-pianist', prefs.pianist_names)}
                 </div>
@@ -374,57 +532,63 @@
                 </div>
                 <div class="card-soft">
                     <h2>Assuntos da unidade</h2>
-                    <p class="small text-muted">Apoios, dispensas, confirmações e ordenações — conforme o Manual Geral.</p>
-                    <label class="form-label">Apoios</label>
-                    <div id="biz-sustainings">${businessRows((meeting.ward_business || {}).sustainings, 'sustainings')}</div>
-                    <label class="form-label">Dispensas</label>
-                    <div id="biz-releases">${businessRows((meeting.ward_business || {}).releases, 'releases')}</div>
-                    <label class="form-label">Confirmações</label>
-                    <div id="biz-confirmations">${businessRows((meeting.ward_business || {}).confirmations, 'confirmations')}</div>
-                    <label class="form-label">Ordenações / bênçãos</label>
-                    <div id="biz-ordinations">${businessRows((meeting.ward_business || {}).ordinations, 'ordinations')}</div>
+                    <p class="small text-muted">Desobrigações, apoios, confirmações, ordenações.</p>
+                    ${businessSection('Desobrigações', 'releases', (meeting.ward_business || {}).releases, 'Adicionar desobrigação')}
+                    ${businessSection('Apoios', 'sustainings', (meeting.ward_business || {}).sustainings, 'Adicionar apoio')}
+                    ${businessSection('Confirmações', 'confirmations', (meeting.ward_business || {}).confirmations, 'Adicionar confirmação')}
+                    ${businessSection('Ordenações / bênçãos', 'ordinations', (meeting.ward_business || {}).ordinations, 'Adicionar ordenação')}
                     <label class="form-label">Outros assuntos</label>
                     <textarea class="form-control" id="bizOther" rows="2">${escapeHtml(((meeting.ward_business || {}).other) || '')}</textarea>
                 </div>
                 <div class="card-soft">
                     <h2>Sacramento</h2>
                     ${hymnPicker('sacrament_hymn', meeting.sacrament_hymn)}
-                    <p class="small mb-0">Administração do sacramento pelos portadores do Sacerdócio Aarônico, sob a direção de quem preside.</p>
+                    <p class="small mb-0">Administração do sacramento pelos portadores do Sacerdócio Aarônico.</p>
                 </div>
                 <div class="card-soft">
                     <h2>Programa</h2>
-                    <div class="mb-3">
-                        <label class="form-label">Número musical</label>
-                        <div class="row g-2">
-                            <div class="col-6"><input class="form-control" id="musicWho" placeholder="Quem apresenta" value="${escapeHtml((meeting.musical_number || {}).who || '')}"></div>
-                            <div class="col-6"><input class="form-control" id="musicPiece" placeholder="Peça / hino" value="${escapeHtml((meeting.musical_number || {}).piece || '')}"></div>
-                        </div>
-                    </div>
-                    ${hymnPicker('special_hymn', meeting.special_hymn)}
-                    <div id="speakersWrap">${speakerCards(meeting.speakers, !!meeting.is_fast_sunday)}</div>
+                    ${renderProgramSection(meeting)}
                 </div>
                 <div class="card-soft">
                     <h2>Encerramento</h2>
                     ${hymnPicker('closing_hymn', meeting.closing_hymn)}
                     <label class="form-label">Oração de encerramento</label>
                     <input class="form-control mb-3" id="closingPrayer" value="${escapeHtml(meeting.closing_prayer || '')}">
-                    <label class="form-label">Observações de quem dirige</label>
-                    <textarea class="form-control" id="notes" rows="2">${escapeHtml(meeting.notes || '')}</textarea>
+                    <label class="form-label">Observações</label>
+                    <textarea class="form-control mb-3" id="notes" rows="2">${escapeHtml(meeting.notes || '')}</textarea>
+                    <button class="btn btn-navy btn-sm btn-save-agenda" type="button">Salvar</button>
                 </div>
             </div>
             <div class="card-soft ${special ? '' : 'hidden'}" id="specialBox">
-                <p class="mb-0">Neste domingo não haverá reunião sacramental na unidade. Use o campo acima para registrar o motivo e preserve o histórico no calendário.</p>
+                <p class="mb-3">Neste domingo não haverá reunião sacramental na unidade. Use o campo acima para registrar o motivo e preserve o histórico no calendário.</p>
+                <button class="btn btn-navy btn-sm btn-save-agenda" type="button">Salvar</button>
             </div>
         `;
         $('#page-agenda').innerHTML = html;
         bindAgendaEvents();
     }
 
-    function collectBiz(type) {
-        return $$(`#biz-${type} .biz-row`).map((row) => ({
+    function collectBiz(type, keepEmpty) {
+        const rows = $$(`#biz-${type} .biz-row`).map((row) => ({
             name: $('.biz-name', row).value.trim(),
             calling: $('.biz-calling', row).value.trim(),
-        })).filter((x) => x.name || x.calling);
+        }));
+        if (keepEmpty) return rows;
+        return rows.filter((x) => x.name || x.calling);
+    }
+
+    function commitBizLists(mutator) {
+        const payload = collectMeeting();
+        const wb = Object.assign({}, payload.ward_business || {});
+        ['sustainings', 'releases', 'confirmations', 'ordinations'].forEach((type) => {
+            const rows = collectBiz(type, true);
+            wb[type] = rows.length ? rows : [{ name: '', calling: '' }];
+        });
+        payload.ward_business = wb;
+        payload.visiting_leaders = collectBiz('visiting_leaders', true);
+        if (typeof mutator === 'function') mutator(payload);
+        state.meeting = Object.assign({}, state.meeting, payload);
+        renderAgenda(state.meeting);
     }
 
     function parseHymn(slot) {
@@ -437,15 +601,66 @@
         }
     }
 
+    function collectProgramItems() {
+        return $$('#programWrap .program-card').map((card) => {
+            const type = card.getAttribute('data-type');
+            if (type === 'musical') {
+                return {
+                    type: 'musical',
+                    who: ($('.prog-who', card) || {}).value ? $('.prog-who', card).value.trim() : '',
+                    piece: ($('.prog-piece', card) || {}).value ? $('.prog-piece', card).value.trim() : '',
+                };
+            }
+            if (type === 'hymn') {
+                let hymn = null;
+                try {
+                    hymn = JSON.parse(($('.hymn-json', card) || {}).value || 'null');
+                } catch (e) {
+                    hymn = null;
+                }
+                return { type: 'hymn', hymn: hymn };
+            }
+            return {
+                type: 'speaker',
+                name: ($('.sp-name', card) || {}).value ? $('.sp-name', card).value.trim() : '',
+                topic: ($('.sp-topic', card) || {}).value ? $('.sp-topic', card).value.trim() : '',
+                duration: ($('.sp-duration', card) || {}).value ? $('.sp-duration', card).value.trim() : '',
+                role: ($('.sp-role', card) || {}).value || 'adulto',
+            };
+        });
+    }
+
+    function deriveLegacyFromProgram(items) {
+        const speakers = [];
+        let musical = { who: '', piece: '' };
+        let specialHymn = null;
+        let gotMusical = false;
+        items.forEach((item) => {
+            if (item.type === 'speaker') {
+                speakers.push({
+                    name: item.name || '',
+                    topic: item.topic || '',
+                    duration: item.duration || '',
+                    role: item.role || 'adulto',
+                });
+            } else if (item.type === 'musical' && !gotMusical) {
+                musical = { who: item.who || '', piece: item.piece || '' };
+                gotMusical = true;
+            } else if (item.type === 'hymn' && !specialHymn) {
+                specialHymn = item.hymn || null;
+            }
+        });
+        return { speakers, musical_number: musical, special_hymn: specialHymn };
+    }
+
     function collectMeeting() {
         const m = state.meeting || {};
         const isFast = $('#isFast') ? $('#isFast').checked : false;
-        const speakers = $$('#speakersWrap .speaker-card').map((card) => ({
-            name: $('.sp-name', card).value.trim(),
-            topic: $('.sp-topic', card).value.trim(),
-            duration: $('.sp-duration', card).value.trim(),
-            role: $('.sp-role', card).value,
-        }));
+        let programItems = collectProgramItems();
+        if (isFast) {
+            programItems = programItems.filter((item) => item.type !== 'speaker');
+        }
+        const legacy = deriveLegacyFromProgram(programItems);
         return {
             meeting_date: m.meeting_date,
             meeting_type: $('#meetingType').value,
@@ -458,7 +673,7 @@
             pianist: $('#pianist') ? $('#pianist').value.trim() : '',
             opening_hymn: parseHymn('opening_hymn'),
             sacrament_hymn: parseHymn('sacrament_hymn'),
-            special_hymn: parseHymn('special_hymn'),
+            special_hymn: legacy.special_hymn,
             closing_hymn: parseHymn('closing_hymn'),
             opening_prayer: $('#openingPrayer') ? $('#openingPrayer').value.trim() : '',
             closing_prayer: $('#closingPrayer') ? $('#closingPrayer').value.trim() : '',
@@ -470,12 +685,11 @@
                 ordinations: collectBiz('ordinations'),
                 other: $('#bizOther') ? $('#bizOther').value.trim() : '',
             },
-            speakers: speakers,
+            visiting_leaders: collectBiz('visiting_leaders'),
+            speakers: legacy.speakers,
+            program_items: programItems,
             is_fast_sunday: isFast,
-            musical_number: {
-                who: $('#musicWho') ? $('#musicWho').value.trim() : '',
-                piece: $('#musicPiece') ? $('#musicPiece').value.trim() : '',
-            },
+            musical_number: legacy.musical_number,
             notes: $('#notes') ? $('#notes').value.trim() : '',
         };
     }
@@ -516,39 +730,143 @@
         $('#isFast') && $('#isFast').addEventListener('change', () => {
             const payload = collectMeeting();
             payload.is_fast_sunday = $('#isFast').checked;
+            if (payload.is_fast_sunday) {
+                payload.program_items = (payload.program_items || []).filter((item) => item.type !== 'speaker');
+                payload.speakers = [];
+            }
             state.meeting = Object.assign({}, state.meeting, payload);
             renderAgenda(state.meeting);
         });
+
+        function commitProgram(items) {
+            const payload = collectMeeting();
+            payload.program_items = items;
+            const legacy = deriveLegacyFromProgram(items);
+            payload.speakers = legacy.speakers;
+            payload.musical_number = legacy.musical_number;
+            payload.special_hymn = legacy.special_hymn;
+            state.meeting = Object.assign({}, state.meeting, payload);
+            renderAgenda(state.meeting);
+        }
 
         $('#btnAddSpeaker') && $('#btnAddSpeaker').addEventListener('click', () => {
-            const payload = collectMeeting();
-            payload.speakers.push({ name: '', topic: '', duration: '', role: 'adulto' });
-            state.meeting = Object.assign({}, state.meeting, payload);
-            renderAgenda(state.meeting);
+            const items = collectProgramItems();
+            items.push({ type: 'speaker', name: '', topic: '', duration: '', role: 'adulto' });
+            commitProgram(items);
         });
 
-        $$('.btn-del-speaker').forEach((btn) => {
-            btn.addEventListener('click', () => {
-                const payload = collectMeeting();
-                const card = btn.closest('.speaker-card');
-                const idx = $$('#speakersWrap .speaker-card').indexOf(card);
-                payload.speakers.splice(idx, 1);
-                state.meeting = Object.assign({}, state.meeting, payload);
-                renderAgenda(state.meeting);
+        $('#btnAddMusical') && $('#btnAddMusical').addEventListener('click', () => {
+            const items = collectProgramItems();
+            items.push({ type: 'musical', who: '', piece: '' });
+            commitProgram(items);
+        });
+
+        $('#btnAddSpecialHymn') && $('#btnAddSpecialHymn').addEventListener('click', () => {
+            const items = collectProgramItems();
+            items.push({ type: 'hymn', hymn: null });
+            commitProgram(items);
+        });
+
+        $$('.btn-del-program').forEach((btn) => {
+            btn.addEventListener('click', async () => {
+                const card = btn.closest('.program-card');
+                const type = card ? card.getAttribute('data-type') : 'speaker';
+                const labels = {
+                    speaker: 'Remover este discursante do programa?',
+                    musical: 'Remover este número musical do programa?',
+                    hymn: 'Remover este hino intermediário do programa?',
+                };
+                const ok = await askConfirm({
+                    title: 'Remover item?',
+                    message: (labels[type] || 'Remover este item do programa?') + ' Os dados digitados serão perdidos.',
+                    confirmLabel: 'Remover',
+                });
+                if (!ok) return;
+                const idx = parseInt(btn.getAttribute('data-idx'), 10);
+                const items = collectProgramItems();
+                items.splice(idx, 1);
+                commitProgram(items);
             });
         });
 
-        $('#btnSave').addEventListener('click', async () => {
-            try {
-                const saved = await api('api/meetings.php?action=save', { method: 'POST', body: collectMeeting() });
-                state.meeting = saved.meeting;
-                toast('Agenda salva.', true);
-            } catch (err) {
-                toast(err.message);
-            }
+        $$('.btn-program-move').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                if (btn.disabled) return;
+                const idx = parseInt(btn.getAttribute('data-idx'), 10);
+                const dir = btn.getAttribute('data-move');
+                const items = collectProgramItems();
+                const swap = dir === 'up' ? idx - 1 : idx + 1;
+                if (swap < 0 || swap >= items.length) return;
+                const tmp = items[idx];
+                items[idx] = items[swap];
+                items[swap] = tmp;
+                commitProgram(items);
+            });
+        });
+
+        $$('.btn-add-biz').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const type = btn.getAttribute('data-type');
+                commitBizLists((payload) => {
+                    if (type === 'visiting_leaders') {
+                        payload.visiting_leaders = (payload.visiting_leaders || []).concat([{ name: '', calling: '' }]);
+                        return;
+                    }
+                    const wb = payload.ward_business || {};
+                    wb[type] = (wb[type] || []).concat([{ name: '', calling: '' }]);
+                    payload.ward_business = wb;
+                });
+            });
+        });
+
+        $$('.btn-del-biz').forEach((btn) => {
+            btn.addEventListener('click', async () => {
+                if (btn.disabled) return;
+                const type = btn.getAttribute('data-type');
+                const labels = {
+                    releases: 'esta desobrigação',
+                    sustainings: 'este apoio',
+                    confirmations: 'esta confirmação',
+                    ordinations: 'esta ordenação',
+                    visiting_leaders: 'este líder visitante',
+                };
+                const ok = await askConfirm({
+                    title: 'Remover item?',
+                    message: 'Remover ' + (labels[type] || 'este item') + '? Nome e chamado digitados serão perdidos.',
+                    confirmLabel: 'Remover',
+                });
+                if (!ok) return;
+                const idx = parseInt(btn.getAttribute('data-idx'), 10);
+                commitBizLists((payload) => {
+                    if (type === 'visiting_leaders') {
+                        const list = (payload.visiting_leaders || []).slice();
+                        list.splice(idx, 1);
+                        payload.visiting_leaders = list;
+                        return;
+                    }
+                    const wb = payload.ward_business || {};
+                    const list = (wb[type] || []).slice();
+                    list.splice(idx, 1);
+                    wb[type] = list.length ? list : [{ name: '', calling: '' }];
+                    payload.ward_business = wb;
+                });
+            });
+        });
+
+        $$('.btn-save-agenda').forEach((btn) => {
+            btn.addEventListener('click', async () => {
+                try {
+                    const saved = await api('api/meetings.php?action=save', { method: 'POST', body: collectMeeting() });
+                    state.meeting = saved.meeting;
+                    toast('Agenda salva.', true);
+                } catch (err) {
+                    toast(err.message);
+                }
+            });
         });
 
         $('#btnPdf').addEventListener('click', () => downloadPdf());
+        $('#btnPng').addEventListener('click', () => downloadPng());
 
         $$('.hymn-input').forEach((input) => {
             const box = input.closest('.hymn-picker');
@@ -608,16 +926,21 @@
             stake_conference: 'Conferência de Estaca',
             special: 'Especial',
         };
+        const meetings = data.meetings || [];
         $('#page-history').innerHTML = `
             <div class="card-soft">
                 <h2>Reuniões anteriores e futuras</h2>
-                ${(data.meetings || []).map((m) => `
-                    <div class="history-item">
+                <p class="small text-muted mb-3">Lista da mais recente para a mais antiga.</p>
+                ${meetings.map((m) => `
+                    <div class="history-item" data-id="${escapeHtml(m.id)}">
                         <div>
                             <strong>${escapeHtml(m.formatted_date || formatIsoDateBr(m.meeting_date))}</strong>
                             <div class="small text-muted">${types[m.meeting_type] || m.meeting_type}${m.meeting_date > today ? ' · futura' : (m.meeting_date < today ? ' · anterior' : ' · atual')}</div>
                         </div>
-                        <button class="btn btn-outline-navy btn-sm" data-open="${escapeHtml(m.meeting_date)}">Abrir</button>
+                        <div class="history-actions">
+                            <button type="button" class="btn btn-outline-navy btn-sm" data-open="${escapeHtml(m.meeting_date)}">Abrir</button>
+                            <button type="button" class="btn btn-outline-danger btn-sm" data-delete="${escapeHtml(m.id)}" data-date-label="${escapeHtml(m.formatted_date || formatIsoDateBr(m.meeting_date))}">Excluir</button>
+                        </div>
                     </div>
                 `).join('') || '<p class="text-muted mb-0">Nenhuma reunião salva ainda.</p>'}
             </div>`;
@@ -625,6 +948,29 @@
             b.addEventListener('click', () => {
                 go('agenda', { skipLoad: true });
                 loadAgenda(b.getAttribute('data-open'));
+            });
+        });
+        $$('#page-history [data-delete]').forEach((b) => {
+            b.addEventListener('click', async () => {
+                const id = parseInt(b.getAttribute('data-delete'), 10);
+                const label = b.getAttribute('data-date-label') || 'esta reunião';
+                if (!id) return;
+                const ok = await askConfirm({
+                    title: 'Excluir reunião?',
+                    message: 'Excluir a reunião de ' + label + '? Essa ação não pode ser desfeita.',
+                    confirmLabel: 'Excluir',
+                });
+                if (!ok) return;
+                try {
+                    await api('api/meetings.php?action=delete', {
+                        method: 'POST',
+                        body: { id: id },
+                    });
+                    toast('Reunião excluída.', true);
+                    loadHistory();
+                } catch (err) {
+                    toast(err.message);
+                }
             });
         });
     }
@@ -916,7 +1262,16 @@
 
     function bindChipRemoves() {
         $$('.names-chip button').forEach((b) => {
-            b.onclick = () => b.parentElement.remove();
+            b.onclick = async () => {
+                const name = b.getAttribute('data-name') || 'este nome';
+                const ok = await askConfirm({
+                    title: 'Remover nome?',
+                    message: 'Remover "' + name + '" da lista de preferências?',
+                    confirmLabel: 'Remover',
+                });
+                if (!ok) return;
+                b.parentElement.remove();
+            };
         });
     }
 
@@ -932,20 +1287,61 @@
         setTimeout(function () { holder.innerHTML = ''; }, 1000);
     }
 
-    function downloadPdf() {
-        const m = Object.assign({}, state.meeting, collectMeeting());
-        const unit = state.user || {};
+    function exportBizLines(title, rows) {
+        const lines = (rows || []).filter((r) => r.name);
+        if (!lines.length) return '';
+        return lines.map((r) => r.name + (r.calling ? ' — ' + r.calling : '')).join('; ');
+    }
+
+    function buildProgramExportLines(m) {
+        const programItems = normalizeProgramItems(m);
+        let speakerN = 0;
+        if (m.is_fast_sunday) {
+            return [{ kind: 'note', text: 'Reunião de jejum e testemunhos' }];
+        }
+        const lines = [];
+        programItems.forEach((item) => {
+            if (item.type === 'musical') {
+                const line = [item.who, item.piece].filter(Boolean).join(' — ');
+                if (line) lines.push({ kind: 'musical', text: line });
+                return;
+            }
+            if (item.type === 'hymn') {
+                if (item.hymn && item.hymn.title) {
+                    lines.push({ kind: 'hymn', text: hymnLine(item.hymn) });
+                }
+                return;
+            }
+            speakerN += 1;
+            if (!item.name) return;
+            lines.push({
+                kind: 'speaker',
+                n: speakerN,
+                name: item.name,
+                topic: item.topic || '',
+                duration: item.duration || '',
+            });
+        });
+        return lines;
+    }
+
+    function buildPdfHtml(m, unit) {
         const special = m.meeting_type !== 'sacramental';
         const biz = (title, rows) => {
-            const lines = (rows || []).filter((r) => r.name);
-            if (!lines.length) return '';
-            return `<p><strong>${title}:</strong> ${lines.map((r) => r.name + (r.calling ? ' — ' + r.calling : '')).join('; ')}</p>`;
+            const text = exportBizLines(title, rows);
+            return text ? `<p><strong>${title}:</strong> ${escapeHtml(text)}</p>` : '';
         };
-        const speakers = (m.speakers || []).filter((s) => s.name).map((s, i) =>
-            `<tr><td>${i + 1}.</td><td>${escapeHtml(s.name)}</td><td>${escapeHtml(s.topic || '')}</td><td>${escapeHtml(s.duration || '')}</td></tr>`
-        ).join('');
+        const programLines = buildProgramExportLines(m);
+        const programHtml = programLines.length
+            ? programLines.map((line) => {
+                if (line.kind === 'musical') return `<p><strong>Número musical:</strong> ${escapeHtml(line.text)}</p>`;
+                if (line.kind === 'hymn') return `<p><strong>Hino intermediário:</strong> ${escapeHtml(line.text)}</p>`;
+                if (line.kind === 'note') return `<p><strong>${escapeHtml(line.text)}</strong></p>`;
+                return `<p><strong>Discursante ${line.n}:</strong> ${escapeHtml(line.name)}${line.topic ? ' — ' + escapeHtml(line.topic) : ''}${line.duration ? ' (' + escapeHtml(line.duration) + ' min)' : ''}</p>`;
+            }).join('')
+            : '<p><strong>Programa:</strong> ________________________________</p>';
 
-        const html = `
+        return `
             <div style="font-family:Georgia,'Times New Roman',serif;color:#10233A;padding:24px;width:720px;">
                 <div style="text-align:center;border-bottom:3px solid #002D5B;padding-bottom:12px;margin-bottom:16px;">
                     <h1 style="margin:8px 0 4px;font-size:26px;color:#002D5B;">Reunião Sacramental</h1>
@@ -954,8 +1350,13 @@
                 </div>
                 ${special ? `<p style="text-align:center;font-size:16px;">Não haverá reunião sacramental neste domingo.<br><em>${escapeHtml(m.special_note || m.meeting_type)}</em></p>` : `
                 <table style="width:100%;font-size:13px;margin-bottom:14px;">
-                    <tr><td>Preside: <strong>${escapeHtml(m.presides || '___________')}</strong></td><td>Dirige: <strong>${escapeHtml(m.conducts || '___________')}</strong></td></tr>
-                    <tr><td>Regente: <strong>${escapeHtml(m.chorister || '___________')}</strong></td><td>Piano/órgão: <strong>${escapeHtml(m.pianist || '___________')}</strong></td></tr>
+                    <tr><td colspan="2">Preside: <strong>${escapeHtml(m.presides || '___________')}</strong></td></tr>
+                    <tr><td colspan="2">Dirige: <strong>${escapeHtml(m.conducts || '___________')}</strong></td></tr>
+                    ${(m.visiting_leaders || []).filter((r) => r.name).map((r) =>
+                        `<tr><td colspan="2">${escapeHtml(r.calling ? r.calling + ': ' : 'Líder visitante: ')}<strong>${escapeHtml(r.name)}</strong></td></tr>`
+                    ).join('')}
+                    <tr><td colspan="2">Regente: <strong>${escapeHtml(m.chorister || '___________')}</strong></td></tr>
+                    <tr><td colspan="2">Piano/órgão: <strong>${escapeHtml(m.pianist || '___________')}</strong></td></tr>
                 </table>
                 <div style="border:1px solid #C4A35A;padding:10px 14px;margin-bottom:14px;background:#FBF7EE;">
                     <strong>Frequência</strong>
@@ -968,25 +1369,148 @@
                 ${m.announcements ? `<p><strong>Anúncios:</strong> ${escapeHtml(m.announcements)}</p>` : ''}
                 <p><strong>Hino de abertura:</strong> ${escapeHtml(hymnLine(m.opening_hymn))}</p>
                 <p><strong>Oração de abertura:</strong> ${escapeHtml(m.opening_prayer || '___________')}</p>
+                ${biz('Desobrigações', (m.ward_business || {}).releases)}
                 ${biz('Apoios', (m.ward_business || {}).sustainings)}
-                ${biz('Dispensas', (m.ward_business || {}).releases)}
                 ${biz('Confirmações', (m.ward_business || {}).confirmations)}
                 ${biz('Ordenações', (m.ward_business || {}).ordinations)}
                 ${(m.ward_business || {}).other ? `<p><strong>Outros assuntos:</strong> ${escapeHtml(m.ward_business.other)}</p>` : ''}
                 <p><strong>Hino sacramental:</strong> ${escapeHtml(hymnLine(m.sacrament_hymn))}</p>
                 <p><em>Administração do sacramento</em></p>
-                ${(m.musical_number || {}).piece ? `<p><strong>Número musical:</strong> ${escapeHtml(m.musical_number.who)} — ${escapeHtml(m.musical_number.piece)}</p>` : ''}
-                <p><strong>Hino especial:</strong> ${escapeHtml(hymnLine(m.special_hymn))}</p>
-                ${m.is_fast_sunday ? '<p><strong>Reunião de jejum e testemunhos</strong></p>' : `
-                    <p><strong>Discursos</strong></p>
-                    <table style="width:100%;border-collapse:collapse;font-size:13px;">
-                        <thead><tr style="border-bottom:1px solid #002D5B;text-align:left;"><th></th><th>Nome</th><th>Tema</th><th>Tempo</th></tr></thead>
-                        <tbody>${speakers || '<tr><td colspan="4">________________________________</td></tr>'}</tbody>
-                    </table>`}
+                <p style="margin-top:10px;"><strong>Programa</strong></p>
+                ${programHtml}
                 <p style="margin-top:14px;"><strong>Hino de encerramento:</strong> ${escapeHtml(hymnLine(m.closing_hymn))}</p>
                 <p><strong>Oração de encerramento:</strong> ${escapeHtml(m.closing_prayer || '___________')}</p>
                 `}
             </div>`;
+    }
+
+    function pngRow(label, value, valueHtml) {
+        if (!value && !valueHtml) return '';
+        return `
+            <div style="margin:0 0 14px;">
+                <div style="font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#9A7B32;margin-bottom:4px;">${escapeHtml(label)}</div>
+                <div style="font-size:20px;line-height:1.35;color:#10233A;font-weight:600;word-break:break-word;">${valueHtml || escapeHtml(value)}</div>
+            </div>`;
+    }
+
+    function pngSection(title, body) {
+        if (!body) return '';
+        return `
+            <div style="margin:0 0 18px;padding:16px 16px 8px;background:#FFFEFB;border:1px solid #D9D1C3;border-radius:16px;">
+                <div style="font-size:15px;font-weight:800;color:#002D5B;margin:0 0 12px;padding-bottom:8px;border-bottom:2px solid #C4A35A;">${escapeHtml(title)}</div>
+                ${body}
+            </div>`;
+    }
+
+    function buildPngHtml(m, unit) {
+        const special = m.meeting_type !== 'sacramental';
+        const total = (parseInt(m.members_count || 0, 10) + parseInt(m.visitors_count || 0, 10)) || '';
+        const bizBlock = (title, rows) => {
+            const text = exportBizLines(title, rows);
+            return text ? pngRow(title, text) : '';
+        };
+        const programLines = buildProgramExportLines(m);
+        let programBody = '';
+        if (special) {
+            programBody = `<div style="font-size:20px;line-height:1.4;text-align:center;color:#10233A;">Não haverá reunião sacramental neste domingo.<br><em style="color:#5C6775;">${escapeHtml(m.special_note || m.meeting_type)}</em></div>`;
+        } else if (!programLines.length) {
+            programBody = pngRow('Programa', 'A definir');
+        } else {
+            programBody = programLines.map((line) => {
+                if (line.kind === 'musical') return pngRow('Número musical', line.text);
+                if (line.kind === 'hymn') return pngRow('Hino intermediário', line.text);
+                if (line.kind === 'note') return pngRow('Programa', line.text);
+                const detail = [line.topic, line.duration ? line.duration + ' min' : ''].filter(Boolean).join(' · ');
+                const valueHtml = escapeHtml(line.name)
+                    + (detail ? `<div style="font-size:16px;font-weight:500;color:#5C6775;margin-top:4px;line-height:1.35;">${escapeHtml(detail)}</div>` : '');
+                return pngRow('Discursante ' + line.n, null, valueHtml);
+            }).join('');
+        }
+
+        const peopleBody = special ? '' : (
+            pngRow('Preside', m.presides || '—') +
+            pngRow('Dirige', m.conducts || '—') +
+            bizBlock('Líderes visitantes', m.visiting_leaders || []) +
+            pngRow('Regente', m.chorister || '—') +
+            pngRow('Piano / órgão', m.pianist || '—')
+        );
+
+        const freqBody = special ? '' : `
+            <div style="display:flex;gap:10px;margin-bottom:8px;">
+                <div style="flex:1;background:#F6F1E7;border-radius:12px;padding:12px;text-align:center;">
+                    <div style="font-size:12px;color:#5C6775;font-weight:700;text-transform:uppercase;">Membros</div>
+                    <div style="font-size:26px;font-weight:800;color:#002D5B;margin-top:4px;">${escapeHtml(m.members_count ?? '—')}</div>
+                </div>
+                <div style="flex:1;background:#F6F1E7;border-radius:12px;padding:12px;text-align:center;">
+                    <div style="font-size:12px;color:#5C6775;font-weight:700;text-transform:uppercase;">Visitantes</div>
+                    <div style="font-size:26px;font-weight:800;color:#002D5B;margin-top:4px;">${escapeHtml(m.visitors_count ?? '—')}</div>
+                </div>
+                <div style="flex:1;background:#002D5B;border-radius:12px;padding:12px;text-align:center;">
+                    <div style="font-size:12px;color:#C4A35A;font-weight:700;text-transform:uppercase;">Total</div>
+                    <div style="font-size:26px;font-weight:800;color:#fff;margin-top:4px;">${escapeHtml(total || '—')}</div>
+                </div>
+            </div>`;
+
+        const openingBody = special ? '' : (
+            (m.announcements ? pngRow('Anúncios', m.announcements) : '') +
+            pngRow('Hino de abertura', hymnLine(m.opening_hymn)) +
+            pngRow('Oração de abertura', m.opening_prayer || '—')
+        );
+
+        const businessBody = special ? '' : (
+            bizBlock('Desobrigações', (m.ward_business || {}).releases) +
+            bizBlock('Apoios', (m.ward_business || {}).sustainings) +
+            bizBlock('Confirmações', (m.ward_business || {}).confirmations) +
+            bizBlock('Ordenações', (m.ward_business || {}).ordinations) +
+            ((m.ward_business || {}).other ? pngRow('Outros assuntos', m.ward_business.other) : '')
+        );
+
+        const sacramentBody = special ? '' : (
+            pngRow('Hino sacramental', hymnLine(m.sacrament_hymn)) +
+            '<div style="font-size:17px;line-height:1.4;color:#5C6775;font-style:italic;margin:0 0 12px;">Administração do sacramento</div>'
+        );
+
+        const closingBody = special ? '' : (
+            pngRow('Hino de encerramento', hymnLine(m.closing_hymn)) +
+            pngRow('Oração de encerramento', m.closing_prayer || '—')
+        );
+
+        return `
+            <div id="pngExportRoot" style="width:390px;box-sizing:border-box;padding:22px 18px 28px;background:linear-gradient(180deg,#F6F1E7 0%,#FFFEFB 40%,#F6F1E7 100%);color:#10233A;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;">
+                <div style="text-align:center;margin-bottom:18px;">
+                    <div style="display:inline-block;padding:6px 12px;border-radius:999px;background:#002D5B;color:#C4A35A;font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">Agenda Sacramental</div>
+                    <h1 style="margin:12px 0 6px;font-size:28px;line-height:1.2;color:#002D5B;font-weight:800;">Reunião Sacramental</h1>
+                    <div style="font-size:18px;line-height:1.35;font-weight:600;color:#1C2430;">${escapeHtml(unit.unit_name || '')}</div>
+                    <div style="margin-top:8px;font-size:20px;font-weight:700;color:#9A7B32;">${escapeHtml(displayDate(m))}</div>
+                    ${m.is_fast_sunday && !special ? '<div style="margin-top:8px;font-size:15px;color:#8B2E2E;font-weight:700;">Jejum e testemunhos</div>' : ''}
+                </div>
+                ${pngSection('Reconhecimentos', peopleBody)}
+                ${pngSection('Frequência', freqBody)}
+                ${pngSection('Abertura', openingBody)}
+                ${pngSection('Assuntos da unidade', businessBody)}
+                ${pngSection('Sacramento', sacramentBody)}
+                ${pngSection('Programa', programBody)}
+                ${pngSection('Encerramento', closingBody)}
+                <div style="text-align:center;margin-top:8px;font-size:12px;color:#5C6775;line-height:1.4;">Agenda Sacramental · Alta Software</div>
+            </div>`;
+    }
+
+    function triggerBlobDownload(blob, filename) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.rel = 'noopener';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+    }
+
+    function downloadPdf() {
+        const m = Object.assign({}, state.meeting, collectMeeting());
+        const unit = state.user || {};
+        const html = buildPdfHtml(m, unit);
         const holder = document.createElement('div');
         holder.innerHTML = html;
         if (shouldUsePrintForPdf()) {
@@ -1009,6 +1533,57 @@
         }
     }
 
+    async function downloadPng() {
+        if (!window.html2canvas) {
+            toast('Não foi possível gerar o PNG neste dispositivo.');
+            return;
+        }
+        const m = Object.assign({}, state.meeting, collectMeeting());
+        const unit = state.user || {};
+        const filename = 'agenda-sacramental-' + isoToFilenameDate(m.meeting_date) + '.png';
+        const mount = document.createElement('div');
+        mount.style.cssText = 'position:fixed;left:-10000px;top:0;z-index:-1;pointer-events:none;';
+        mount.innerHTML = buildPngHtml(m, unit);
+        document.body.appendChild(mount);
+        const target = mount.firstElementChild;
+        toast('Gerando imagem…', true);
+        try {
+            const canvas = await window.html2canvas(target, {
+                scale: 2.5,
+                useCORS: true,
+                backgroundColor: '#F6F1E7',
+                logging: false,
+                width: 390,
+                windowWidth: 390,
+            });
+            await new Promise(function (resolve, reject) {
+                if (canvas.toBlob) {
+                    canvas.toBlob(function (blob) {
+                        if (!blob) {
+                            reject(new Error('Falha ao criar PNG.'));
+                            return;
+                        }
+                        triggerBlobDownload(blob, filename);
+                        resolve();
+                    }, 'image/png');
+                } else {
+                    const a = document.createElement('a');
+                    a.href = canvas.toDataURL('image/png');
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    resolve();
+                }
+            });
+            toast('PNG baixado.', true);
+        } catch (err) {
+            toast(err.message || 'Não foi possível gerar o PNG.');
+        } finally {
+            mount.remove();
+        }
+    }
+
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.hymn-picker')) {
             $$('.hymn-results').forEach((r) => r.classList.add('hidden'));
@@ -1021,33 +1596,32 @@
         }
     }, { passive: true });
 
-    function closeLogoutConfirm() {
-        const overlay = $('#logoutConfirm');
-        overlay.classList.add('hidden');
-        overlay.setAttribute('aria-hidden', 'true');
+    function closeAppConfirmFromUi() {
+        closeAppConfirm(false);
     }
 
-    $('#btnLogout').addEventListener('click', () => {
-        const overlay = $('#logoutConfirm');
-        overlay.classList.remove('hidden');
-        overlay.setAttribute('aria-hidden', 'false');
-        $('#logoutCancel').focus();
-    });
-
-    $('#logoutCancel').addEventListener('click', closeLogoutConfirm);
-
-    $('#logoutConfirm').addEventListener('click', (e) => {
-        if (e.target === $('#logoutConfirm')) closeLogoutConfirm();
-    });
-
-    $('#logoutConfirmBtn').addEventListener('click', async () => {
+    $('#btnLogout').addEventListener('click', async () => {
+        const ok = await askConfirm({
+            title: 'Sair da conta?',
+            message: 'Você precisará entrar novamente para acessar a agenda.',
+            confirmLabel: 'Sair',
+        });
+        if (!ok) return;
         await api('api/auth.php?action=logout', { method: 'POST', body: {} });
         location.reload();
     });
 
+    $('#appConfirmCancel').addEventListener('click', closeAppConfirmFromUi);
+
+    $('#appConfirm').addEventListener('click', (e) => {
+        if (e.target === $('#appConfirm')) closeAppConfirm(false);
+    });
+
+    $('#appConfirmOk').addEventListener('click', () => closeAppConfirm(true));
+
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !$('#logoutConfirm').classList.contains('hidden')) {
-            closeLogoutConfirm();
+        if (e.key === 'Escape' && !$('#appConfirm').classList.contains('hidden')) {
+            closeAppConfirm(false);
         }
     });
 
@@ -1060,6 +1634,29 @@
             if (data.authenticated) applySession(data);
         } catch (e) {}
     }
+
+    function keepSessionAlive() {
+        if (!state.user) return;
+        api('api/auth.php?action=session').then((data) => {
+            if (data && data.authenticated) {
+                if (data.csrf_token) state.csrf = data.csrf_token;
+                return;
+            }
+            state.user = null;
+            $('#appView').classList.add('hidden');
+            $('#authView').classList.remove('hidden');
+        }).catch(() => {});
+    }
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') keepSessionAlive();
+    });
+
+    window.addEventListener('pageshow', (ev) => {
+        if (ev.persisted) keepSessionAlive();
+    });
+
+    setInterval(keepSessionAlive, 15 * 60 * 1000);
 
     boot();
 })();

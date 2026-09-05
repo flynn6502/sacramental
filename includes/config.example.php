@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 define('APP_NAME', 'Agenda Sacramental');
 define('APP_TIMEZONE', 'America/Sao_Paulo');
-define('APP_ASSET_VERSION', '2');
 define('SESSION_LIFETIME_DAYS', 90);
 
 define('ADMIN_USERNAME', 'admin');
 define('ADMIN_PASSWORD', 'altere-esta-senha');
 define('ADMIN_SESSION_KEY', 'altere-esta-chave-longa-e-aleatoria');
 
-define('MAIL_FROM', 'noreply@seudominio.com');
+// E-mail — deixe MAIL_SMTP_HOST vazio para usar PHP mail() do HostGator.
+// MAIL_FROM deve ser um endereço do seu domínio (ex.: suporte@altasoftware.com.br).
+define('MAIL_FROM', 'suporte@altasoftware.com.br');
 define('MAIL_FROM_NAME', 'Agenda Sacramental');
 define('MAIL_SMTP_HOST', '');
 define('MAIL_SMTP_PORT', 587);

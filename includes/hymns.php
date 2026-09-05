@@ -66,6 +66,19 @@ function extractMeetingHymnIds(array $meeting): array
             $ids[] = (string) $data['id'];
         }
     }
+    $program = $meeting['program_items'] ?? null;
+    if (!is_array($program)) {
+        $program = decodeJsonField($program, []);
+    }
+    foreach ($program as $item) {
+        if (!is_array($item) || ($item['type'] ?? '') !== 'hymn') {
+            continue;
+        }
+        $hymn = $item['hymn'] ?? null;
+        if (is_array($hymn) && !empty($hymn['id'])) {
+            $ids[] = (string) $hymn['id'];
+        }
+    }
     return $ids;
 }
 
@@ -73,7 +86,7 @@ function suggestHymnsForMeeting(PDO $pdo, int $unitId, string $meetingDate, arra
 {
     $recent = [];
     $stmt = $pdo->prepare(
-        "SELECT opening_hymn, sacrament_hymn, special_hymn, closing_hymn
+        "SELECT opening_hymn, sacrament_hymn, special_hymn, closing_hymn, program_items
          FROM meetings
          WHERE unit_id = :unit_id
            AND meeting_type = 'sacramental'
@@ -156,7 +169,6 @@ function suggestHymnsForMeeting(PDO $pdo, int $unitId, string $meetingDate, arra
     return [
         'opening_hymn' => $pick('opening', ['animated']),
         'sacrament_hymn' => $pick('sacrament', ['reflective']),
-        'special_hymn' => $pick('special', ['animated', 'moderate']),
         'closing_hymn' => $pick('closing', ['reflective']),
     ];
 }

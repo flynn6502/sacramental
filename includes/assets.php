@@ -4,13 +4,24 @@ declare(strict_types=1);
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'site.php';
 
+/**
+ * Cache-busting version derived from file contents (automatic).
+ * Changes whenever the asset file changes on disk — no manual bump needed.
+ */
 function assetVersion(string $relativePath): string
 {
     $fullPath = dirname(__DIR__) . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $relativePath);
-    $stamp = file_exists($fullPath) ? (string) filemtime($fullPath) : '0';
-    $appVer = defined('APP_ASSET_VERSION') ? APP_ASSET_VERSION : '1';
 
-    return $appVer . '.' . $stamp;
+    if (!file_exists($fullPath) || !is_readable($fullPath)) {
+        return '0';
+    }
+
+    $hash = @md5_file($fullPath);
+    if ($hash === false) {
+        return (string) filemtime($fullPath) . 's' . (string) filesize($fullPath);
+    }
+
+    return substr($hash, 0, 12);
 }
 
 function assetUrl(string $relativePath): string

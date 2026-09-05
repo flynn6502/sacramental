@@ -76,6 +76,27 @@ foreach ($meetings as $m) {
         $hymnCounts[$label] = ($hymnCounts[$label] ?? 0) + 1;
         $hymnBySlot[$slot][$label] = ($hymnBySlot[$slot][$label] ?? 0) + 1;
     }
+
+    foreach ($m['program_items'] ?? [] as $item) {
+        if (!is_array($item) || ($item['type'] ?? '') !== 'hymn') {
+            continue;
+        }
+        $h = $item['hymn'] ?? null;
+        if (!is_array($h) || empty($h['title'])) {
+            continue;
+        }
+        $label = trim(($h['number'] ?? '') . ' — ' . $h['title']);
+        // Avoid double-counting the first hymn already stored in special_hymn
+        $special = $m['special_hymn'] ?? null;
+        if (is_array($special) && ($special['id'] ?? '') !== '' && ($special['id'] ?? null) === ($h['id'] ?? null)) {
+            continue;
+        }
+        if (is_array($special) && empty($special['id']) && ($special['title'] ?? '') === ($h['title'] ?? '')) {
+            continue;
+        }
+        $hymnCounts[$label] = ($hymnCounts[$label] ?? 0) + 1;
+        $hymnBySlot['special_hymn'][$label] = ($hymnBySlot['special_hymn'][$label] ?? 0) + 1;
+    }
 }
 
 $sortDesc = static function (array $map, int $limit = 8): array {

@@ -54,13 +54,14 @@ cp includes/config.example.php includes/config.local.php
    - `ADMIN_USERNAME` / `ADMIN_PASSWORD` — painel `/admin/`
    - `ADMIN_SESSION_KEY` — chave longa e aleatória
    - `SESSION_LIFETIME_DAYS` — dias logado (padrão `90`)
-   - `APP_ASSET_VERSION` — incremente ao publicar JS/CSS novos (`2`, `3`…)
    - SMTP (`MAIL_*`) se quiser “esqueci minha senha”
 4. Acesse `http://altasoftware.com.br/sacramental/`.
 5. Use **Primeiro acesso** e cadastre número e nome da unidade.
 6. Unidades já existentes **não** podem ser re-registradas; líderes adicionam usuários em **Configurações**.
 
 O banco SQLite é criado automaticamente em `data/sacramental.db` no primeiro uso.
+
+JS e CSS usam versionamento **automático** (`?v=` com hash do arquivo). Basta enviar o arquivo novo — o celular baixa a versão atualizada sem incrementar nada no config.
 
 ## Publicar no HostGator (ou similar)
 
@@ -86,7 +87,8 @@ O `.gitignore` já ignora credenciais e o banco.
 2. Crie `includes/config.local.php` a partir de `config.example.php` com senhas **novas** de produção.
 3. Garanta escrita em `data/` (criação do SQLite).
 4. Acesse o domínio, cadastre a unidade com **Primeiro acesso**.
-5. Após atualizar JS/CSS, incremente `APP_ASSET_VERSION` no `config.local.php` do servidor para forçar cache novo no celular.
+
+Ao publicar JS/CSS novos, só envie os arquivos: o `?v=` muda sozinho com o conteúdo do arquivo (não é preciso alterar o config).
 
 ## Estrutura principal
 

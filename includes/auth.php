@@ -27,6 +27,22 @@ function appCookiePath(): string
     return rtrim($dir, '/') . '/';
 }
 
+function appSessionSavePath(): string
+{
+    $dir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'sessions';
+    if (!is_dir($dir)) {
+        @mkdir($dir, 0755, true);
+    }
+    return $dir;
+}
+
+function isHttpsRequest(): bool
+{
+    return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+        || ((int) ($_SERVER['SERVER_PORT'] ?? 0) === 443)
+        || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
+}
+
 function refreshSessionCookie(): void
 {
     if (session_status() !== PHP_SESSION_ACTIVE || empty($_SESSION['user_id'])) {
@@ -34,14 +50,17 @@ function refreshSessionCookie(): void
     }
 
     $params = session_get_cookie_params();
-    setcookie(session_name(), session_id(), [
+    $options = [
         'expires' => time() + sessionLifetimeSeconds(),
-        'path' => $params['path'],
-        'domain' => $params['domain'],
-        'secure' => $params['secure'],
-        'httponly' => $params['httponly'],
+        'path' => $params['path'] ?: appCookiePath(),
+        'secure' => !empty($params['secure']),
+        'httponly' => true,
         'samesite' => $params['samesite'] ?? 'Lax',
-    ]);
+    ];
+    if (!empty($params['domain'])) {
+        $options['domain'] = $params['domain'];
+    }
+    setcookie(session_name(), session_id(), $options);
 }
 
 function appSessionStart(): void
@@ -50,15 +69,23 @@ function appSessionStart(): void
         return;
     }
 
-    $secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
-        || ((int) ($_SERVER['SERVER_PORT'] ?? 0) === 443)
-        || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
+    $secure = isHttpsRequest();
+    $lifetime = sessionLifetimeSeconds();
+    $savePath = appSessionSavePath();
+
+    if (is_dir($savePath) && is_writable($savePath)) {
+        session_save_path($savePath);
+    }
 
     ini_set('session.use_strict_mode', '1');
-    ini_set('session.gc_maxlifetime', (string) sessionLifetimeSeconds());
+    ini_set('session.use_only_cookies', '1');
+    ini_set('session.cookie_lifetime', (string) $lifetime);
+    ini_set('session.gc_maxlifetime', (string) $lifetime);
+    ini_set('session.gc_probability', '1');
+    ini_set('session.gc_divisor', '100');
 
     session_set_cookie_params([
-        'lifetime' => sessionLifetimeSeconds(),
+        'lifetime' => $lifetime,
         'path' => appCookiePath(),
         'secure' => $secure,
         'httponly' => true,
@@ -66,6 +93,10 @@ function appSessionStart(): void
     ]);
     session_name('sacramental_sid');
     session_start();
+
+    if (!empty($_SESSION['user_id'])) {
+        refreshSessionCookie();
+    }
 }
 
 function jsonResponse(array $data, int $code = 200): void

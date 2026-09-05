@@ -148,6 +148,15 @@ function initializeDatabase(PDO $pdo): void
     if (!in_array('week_starts_on', $prefColNames, true)) {
         $pdo->exec('ALTER TABLE user_preferences ADD COLUMN week_starts_on TEXT NOT NULL DEFAULT "monday"');
     }
+
+    $meetingCols = $pdo->query('PRAGMA table_info(meetings)')->fetchAll();
+    $meetingColNames = array_map(static fn($c) => $c['name'], $meetingCols);
+    if (!in_array('program_items', $meetingColNames, true)) {
+        $pdo->exec('ALTER TABLE meetings ADD COLUMN program_items TEXT');
+    }
+    if (!in_array('visiting_leaders', $meetingColNames, true)) {
+        $pdo->exec('ALTER TABLE meetings ADD COLUMN visiting_leaders TEXT');
+    }
 }
 
 function decodeJsonField($value, $default = [])
@@ -167,6 +176,110 @@ function encodeJsonField($value): string
     return json_encode($value, JSON_UNESCAPED_UNICODE);
 }
 
+function buildProgramItemsFromLegacy(array $row): array
+{
+    $items = [];
+    $musical = is_array($row['musical_number'] ?? null) ? $row['musical_number'] : [];
+    if (trim((string) ($musical['who'] ?? '')) !== '' || trim((string) ($musical['piece'] ?? '')) !== '') {
+        $items[] = [
+            'type' => 'musical',
+            'who' => (string) ($musical['who'] ?? ''),
+            'piece' => (string) ($musical['piece'] ?? ''),
+        ];
+    }
+    $hymn = $row['special_hymn'] ?? null;
+    if (is_array($hymn) && trim((string) ($hymn['title'] ?? '')) !== '') {
+        $items[] = ['type' => 'hymn', 'hymn' => $hymn];
+    }
+    foreach ($row['speakers'] ?? [] as $speaker) {
+        if (!is_array($speaker)) {
+            continue;
+        }
+        $items[] = [
+            'type' => 'speaker',
+            'name' => (string) ($speaker['name'] ?? ''),
+            'topic' => (string) ($speaker['topic'] ?? ''),
+            'duration' => (string) ($speaker['duration'] ?? ''),
+            'role' => (string) ($speaker['role'] ?? 'adulto'),
+        ];
+    }
+    return $items;
+}
+
+function syncLegacyFieldsFromProgram(array $programItems): array
+{
+    $speakers = [];
+    $musical = ['who' => '', 'piece' => ''];
+    $specialHymn = null;
+    $hasMusical = false;
+
+    foreach ($programItems as $item) {
+        if (!is_array($item)) {
+            continue;
+        }
+        $type = (string) ($item['type'] ?? '');
+        if ($type === 'speaker') {
+            $speakers[] = [
+                'name' => trim((string) ($item['name'] ?? '')),
+                'topic' => trim((string) ($item['topic'] ?? '')),
+                'duration' => trim((string) ($item['duration'] ?? '')),
+                'role' => trim((string) ($item['role'] ?? 'adulto')) ?: 'adulto',
+            ];
+        } elseif ($type === 'musical' && !$hasMusical) {
+            $musical = [
+                'who' => trim((string) ($item['who'] ?? '')),
+                'piece' => trim((string) ($item['piece'] ?? '')),
+            ];
+            $hasMusical = true;
+        } elseif ($type === 'hymn' && $specialHymn === null) {
+            $hymn = $item['hymn'] ?? null;
+            $specialHymn = is_array($hymn) ? $hymn : null;
+        }
+    }
+
+    return [
+        'speakers' => $speakers,
+        'musical_number' => $musical,
+        'special_hymn' => $specialHymn,
+    ];
+}
+
+function sanitizeProgramItems($raw): array
+{
+    if (!is_array($raw)) {
+        return [];
+    }
+    $items = [];
+    foreach ($raw as $item) {
+        if (!is_array($item)) {
+            continue;
+        }
+        $type = (string) ($item['type'] ?? '');
+        if ($type === 'speaker') {
+            $items[] = [
+                'type' => 'speaker',
+                'name' => trim((string) ($item['name'] ?? '')),
+                'topic' => trim((string) ($item['topic'] ?? '')),
+                'duration' => trim((string) ($item['duration'] ?? '')),
+                'role' => trim((string) ($item['role'] ?? 'adulto')) ?: 'adulto',
+            ];
+        } elseif ($type === 'musical') {
+            $items[] = [
+                'type' => 'musical',
+                'who' => trim((string) ($item['who'] ?? '')),
+                'piece' => trim((string) ($item['piece'] ?? '')),
+            ];
+        } elseif ($type === 'hymn') {
+            $hymn = $item['hymn'] ?? null;
+            $items[] = [
+                'type' => 'hymn',
+                'hymn' => is_array($hymn) ? $hymn : null,
+            ];
+        }
+    }
+    return $items;
+}
+
 function meetingRowToApi(array $row): array
 {
     $row['id'] = (int) $row['id'];
@@ -174,7 +287,15 @@ function meetingRowToApi(array $row): array
     $row['is_fast_sunday'] = (int) ($row['is_fast_sunday'] ?? 0) === 1;
     $row['members_count'] = $row['members_count'] === null ? null : (int) $row['members_count'];
     $row['visitors_count'] = $row['visitors_count'] === null ? null : (int) $row['visitors_count'];
-    foreach (['opening_hymn', 'sacrament_hymn', 'special_hymn', 'closing_hymn', 'ward_business', 'speakers', 'musical_number'] as $field) {
+    foreach (['opening_hymn', 'sacrament_hymn', 'special_hymn', 'closing_hymn', 'ward_business', 'speakers', 'musical_number', 'program_items', 'visiting_leaders'] as $field) {
+        if ($field === 'program_items') {
+            $row[$field] = decodeJsonField($row[$field] ?? null, null);
+            continue;
+        }
+        if ($field === 'visiting_leaders') {
+            $row[$field] = sanitizeVisitingLeaders(decodeJsonField($row[$field] ?? null, []));
+            continue;
+        }
         $row[$field] = decodeJsonField($row[$field] ?? null, $field === 'speakers' || $field === 'ward_business' ? [] : null);
         if ($field === 'ward_business' && $row[$field] === []) {
             $row[$field] = [
@@ -189,6 +310,13 @@ function meetingRowToApi(array $row): array
             $row[$field] = ['who' => '', 'piece' => ''];
         }
     }
+
+    if (!is_array($row['program_items']) || $row['program_items'] === []) {
+        $row['program_items'] = buildProgramItemsFromLegacy($row);
+    } else {
+        $row['program_items'] = sanitizeProgramItems($row['program_items']);
+    }
+
     return $row;
 }
 
@@ -201,6 +329,26 @@ function emptyWardBusiness(): array
         'ordinations' => [],
         'other' => '',
     ];
+}
+
+function sanitizeVisitingLeaders($value): array
+{
+    if (!is_array($value)) {
+        return [];
+    }
+    $out = [];
+    foreach ($value as $item) {
+        if (!is_array($item)) {
+            continue;
+        }
+        $name = trim((string) ($item['name'] ?? ''));
+        $calling = trim((string) ($item['calling'] ?? ''));
+        if ($name === '' && $calling === '') {
+            continue;
+        }
+        $out[] = ['name' => $name, 'calling' => $calling];
+    }
+    return $out;
 }
 
 function logAccess(PDO $pdo, array $data): void

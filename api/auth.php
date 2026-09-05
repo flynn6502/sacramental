@@ -86,6 +86,7 @@ function handleLogin(): void
     $_SESSION['user_id'] = (int) $user['id'];
     $_SESSION['unit_id'] = (int) $user['unit_id'];
     ensureCsrfToken();
+    refreshSessionCookie();
 
     if ($consent) {
         $ip = getClientIp();
@@ -177,6 +178,8 @@ function handleRegister(): void
     session_regenerate_id(true);
     $_SESSION['user_id'] = $userId;
     $_SESSION['unit_id'] = $unitId;
+    ensureCsrfToken();
+    refreshSessionCookie();
 
     $user = currentUserRow();
     jsonResponse([
@@ -196,7 +199,17 @@ function handleLogout(): void
     $_SESSION = [];
     if (ini_get('session.use_cookies')) {
         $p = session_get_cookie_params();
-        setcookie(session_name(), '', time() - 42000, $p['path'], $p['domain'], $p['secure'], $p['httponly']);
+        $options = [
+            'expires' => time() - 42000,
+            'path' => $p['path'] ?: appCookiePath(),
+            'secure' => !empty($p['secure']),
+            'httponly' => true,
+            'samesite' => $p['samesite'] ?? 'Lax',
+        ];
+        if (!empty($p['domain'])) {
+            $options['domain'] = $p['domain'];
+        }
+        setcookie(session_name(), '', $options);
     }
     session_destroy();
     jsonResponse(['success' => true]);

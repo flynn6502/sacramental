@@ -10,23 +10,42 @@ function sendAppMail(string $to, string $subject, string $htmlBody, string $text
         $textBody = trim(strip_tags(str_replace(['<br>', '<br/>', '<br />', '</p>'], ["\n", "\n", "\n", "\n\n"], $htmlBody)));
     }
 
-    $from = defined('MAIL_FROM') ? MAIL_FROM : 'suporte@altasoftware.com.br';
-    $fromName = defined('MAIL_FROM_NAME') ? MAIL_FROM_NAME : 'Agenda Sacramental';
+    $from = defined('MAIL_FROM') ? trim((string) MAIL_FROM) : 'suporte@altasoftware.com.br';
+    $fromName = defined('MAIL_FROM_NAME') ? (string) MAIL_FROM_NAME : 'Agenda Sacramental';
     $host = defined('MAIL_SMTP_HOST') ? trim((string) MAIL_SMTP_HOST) : '';
 
+    // Com MAIL_SMTP_HOST preenchido usa SMTP; vazio usa PHP mail()
     if ($host !== '') {
         return sendSmtpMail($to, $subject, $htmlBody, $textBody, $from, $fromName);
     }
 
+    return sendPhpMail($to, $subject, $htmlBody, $from, $fromName);
+}
+
+function sendPhpMail(string $to, string $subject, string $htmlBody, string $from, string $fromName): bool
+{
+    if ($from === '' || !filter_var($from, FILTER_VALIDATE_EMAIL) || !filter_var($to, FILTER_VALIDATE_EMAIL)) {
+        return false;
+    }
+
+    $encodedName = function_exists('mb_encode_mimeheader')
+        ? mb_encode_mimeheader($fromName, 'UTF-8')
+        : $fromName;
+    $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+
     $headers = [
         'MIME-Version: 1.0',
         'Content-Type: text/html; charset=UTF-8',
-        'From: ' . sprintf('"%s" <%s>', mb_encode_mimeheader($fromName, 'UTF-8'), $from),
+        'From: ' . sprintf('"%s" <%s>', $encodedName, $from),
         'Reply-To: ' . $from,
+        'Return-Path: ' . $from,
         'X-Mailer: AgendaSacramental',
     ];
 
-    return @mail($to, '=?UTF-8?B?' . base64_encode($subject) . '?=', $htmlBody, implode("\r\n", $headers));
+    // -f define o remetente do envelope (importante no HostGator)
+    $extra = '-f' . $from;
+
+    return @mail($to, $encodedSubject, $htmlBody, implode("\r\n", $headers), $extra);
 }
 
 function sendSmtpMail(string $to, string $subject, string $html, string $text, string $from, string $fromName): bool

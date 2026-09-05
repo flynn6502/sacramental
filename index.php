@@ -161,13 +161,13 @@ $resetToken = trim((string) ($_GET['reset'] ?? ''));
 
     <div id="printRoot" class="print-sheet"></div>
     <div id="toastWrap" class="toast-wrap"></div>
-    <div id="logoutConfirm" class="logout-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="logoutConfirmTitle" aria-hidden="true">
-        <div class="logout-dialog">
-            <h2 id="logoutConfirmTitle">Sair da conta?</h2>
-            <p>Você precisará entrar novamente para acessar a agenda.</p>
-            <div class="logout-dialog-actions">
-                <button type="button" id="logoutCancel" class="btn-logout-cancel">Cancelar</button>
-                <button type="button" id="logoutConfirmBtn" class="btn-logout-confirm">Sair</button>
+    <div id="appConfirm" class="confirm-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="appConfirmTitle" aria-hidden="true">
+        <div class="confirm-dialog">
+            <h2 id="appConfirmTitle">Confirmar?</h2>
+            <p id="appConfirmMessage"></p>
+            <div class="confirm-dialog-actions">
+                <button type="button" id="appConfirmCancel" class="btn-confirm-cancel">Cancelar</button>
+                <button type="button" id="appConfirmOk" class="btn-confirm-ok">Remover</button>
             </div>
         </div>
     </div>
@@ -190,6 +190,7 @@ $resetToken = trim((string) ($_GET['reset'] ?? ''));
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.2/dist/html2pdf.bundle.min.js"></script>
     <script src="<?= htmlspecialchars(assetUrl('js/consent.js')) ?>"></script>
     <script src="<?= htmlspecialchars(assetUrl('js/app.js')) ?>"></script>
