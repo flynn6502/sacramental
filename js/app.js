@@ -509,15 +509,15 @@
                 <div class="card-soft">
                     <h2>Reconhecimentos</h2>
                     <div class="recog-stack">
-                        ${recognitionField('presides', 'Preside', meeting.presides, 'dl-preside')}
-                        ${recognitionField('conducts', 'Dirige', meeting.conducts, 'dl-conduct')}
+                        ${recognitionField('presides', 'Presidida por', meeting.presides, 'dl-preside')}
+                        ${recognitionField('conducts', 'Dirigida por', meeting.conducts, 'dl-conduct')}
                     </div>
                     ${namesDatalist('dl-preside', prefs.preside_names)}
                     ${namesDatalist('dl-conduct', prefs.conduct_names)}
                     ${businessSection('Líderes visitantes', 'visiting_leaders', meeting.visiting_leaders || [], 'Adicionar líder visitante', { allowBlank: false, className: 'mb-3 mt-3' })}
                     <div class="recog-stack">
                         ${recognitionField('chorister', 'Regente', meeting.chorister, 'dl-chorister')}
-                        ${recognitionField('pianist', 'Piano / órgão', meeting.pianist, 'dl-pianist')}
+                        ${recognitionField('pianist', 'Pianista', meeting.pianist, 'dl-pianist')}
                     </div>
                     ${namesDatalist('dl-chorister', prefs.chorister_names)}
                     ${namesDatalist('dl-pianist', prefs.pianist_names)}
