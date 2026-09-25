@@ -346,7 +346,7 @@ body.app-locked { overflow: hidden; }
 
 .recog-field .form-control {
     width: 100%;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.35;
     padding: 0.55rem 0.65rem;
 }
@@ -365,6 +365,16 @@ body.app-locked { overflow: hidden; }
     padding: 0.65rem 0.7rem 0.75rem;
     margin-bottom: 0.55rem;
     background: #fbfaf7;
+}
+
+.biz-row.speaker-card {
+    border-style: dashed;
+    padding: 0.7rem;
+    margin-bottom: 0.6rem;
+}
+
+.biz-row.speaker-card .biz-field-label:first-of-type {
+    margin-top: 0;
 }
 
 .biz-row-head {
@@ -403,7 +413,7 @@ body.app-locked { overflow: hidden; }
 .biz-row .biz-name,
 .biz-row .biz-calling {
     width: 100%;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.35;
     padding: 0.55rem 0.65rem;
 }
@@ -636,6 +646,7 @@ body.app-locked { overflow: hidden; }
 .print-sheet { display: none; }
 
 @media print {
+    @page { size: A4; margin: 10mm; }
     body * { visibility: hidden; }
     .print-sheet, .print-sheet * { visibility: visible; }
     .print-sheet {

@@ -120,7 +120,7 @@ if ($attendance) {
     $last = $attendance[array_key_last($attendance)];
     $avgTotal = $avgMembers + $avgVisitors;
     if ($last['total'] > $avgTotal && $avgTotal > 0) {
-        $insights[] = 'A última reunião ficou acima da média de frequência da unidade. Vale reconhecer o convite e o cuidado pastoral.';
+        $insights[] = 'A última reunião ficou acima da média de frequência da unidade. Vale reconhecer o convite e a ministração.';
     } elseif ($last['total'] < $avgTotal && $avgTotal > 0) {
         $insights[] = 'A última frequência ficou abaixo da média. Pode ser um bom momento para visitas e convites pessoais.';
     }

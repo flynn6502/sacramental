@@ -275,6 +275,12 @@ function sanitizeProgramItems($raw): array
                 'type' => 'hymn',
                 'hymn' => is_array($hymn) ? $hymn : null,
             ];
+        } elseif ($type === 'testimony') {
+            $items[] = [
+                'type' => 'testimony',
+                'name' => trim((string) ($item['name'] ?? '')),
+                'duration' => trim((string) ($item['duration'] ?? '')),
+            ];
         }
     }
     return $items;
