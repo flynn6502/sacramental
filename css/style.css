@@ -643,6 +643,10 @@ body.app-locked { overflow: hidden; }
 
 .names-chip button { border: 0; background: none; color: var(--danger); }
 
+.save-status:empty { display: none; }
+.save-status { font-weight: 650; }
+.save-status.is-error { color: var(--danger); }
+
 .print-sheet { display: none; }
 
 @media print {

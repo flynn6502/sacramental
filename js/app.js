@@ -256,6 +256,8 @@
 
     function go(page, opts) {
         opts = opts || {};
+        const prev = state.page;
+        if (prev === 'agenda' && page !== 'agenda') flushAutosave();
         state.page = page;
         $$('.bottom-nav button').forEach((b) => b.classList.toggle('active', b.getAttribute('data-page') === page));
         $$('.page').forEach((p) => p.classList.toggle('active', p.id === 'page-' + page));
@@ -507,7 +509,8 @@
         return '<option value="' + val + '"' + (cur === val ? ' selected' : '') + '>' + label + '</option>';
     }
 
-    function renderAgenda(meeting) {
+    function renderAgenda(meeting, opts) {
+        opts = opts || {};
         state.meeting = meeting;
         const prefs = state.preferences || {};
         const members = meeting.members_count ?? '';
@@ -531,12 +534,11 @@
                 <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">
                     <div>
                         <h2 class="mb-1">Programa do domingo</h2>
-                        <p class="small text-muted mb-0">${escapeHtml(displayDate(meeting))}${meeting.is_fast_sunday && !special ? ' · Jejum e testemunhos' : ''}</p>
+                        <p class="small text-muted mb-0">${escapeHtml(displayDate(meeting))}${meeting.is_fast_sunday && !special ? ' · Jejum e testemunhos' : ''} <span id="saveStatus" class="save-status"></span></p>
                     </div>
                     <div class="d-flex gap-2 flex-wrap">
                         <button class="btn btn-outline-navy btn-sm" id="btnPng">Baixar PNG</button>
                         <button class="btn btn-outline-navy btn-sm" id="btnPdf">Baixar PDF</button>
-                        <button class="btn btn-navy btn-sm btn-save-agenda" type="button">Salvar</button>
                     </div>
                 </div>
             </div>
@@ -605,17 +607,25 @@
                     <label class="form-label">Oração de encerramento</label>
                     <input class="form-control mb-3" id="closingPrayer" value="${escapeHtml(meeting.closing_prayer || '')}">
                     <label class="form-label">Observações</label>
-                    <textarea class="form-control mb-3" id="notes" rows="2">${escapeHtml(meeting.notes || '')}</textarea>
-                    <button class="btn btn-navy btn-sm btn-save-agenda" type="button">Salvar</button>
+                    <textarea class="form-control" id="notes" rows="2">${escapeHtml(meeting.notes || '')}</textarea>
                 </div>
             </div>
             <div class="card-soft ${special ? '' : 'hidden'}" id="specialBox">
-                <p class="mb-3">Neste domingo não haverá reunião sacramental na unidade. Use o campo acima para registrar o motivo e preserve o histórico no calendário.</p>
-                <button class="btn btn-navy btn-sm btn-save-agenda" type="button">Salvar</button>
+                <p class="mb-0">Neste domingo não haverá reunião sacramental na unidade. Use o campo acima para registrar o motivo e preserve o histórico no calendário.</p>
             </div>
         `;
         $('#page-agenda').innerHTML = html;
         bindAgendaEvents();
+        if (opts.markClean) {
+            try {
+                lastSavedJson = meetingFingerprint(collectMeeting());
+            } catch (e) {
+                lastSavedJson = '';
+            }
+            setSaveStatus('');
+        } else {
+            scheduleAutosave();
+        }
     }
 
     function collectBiz(type, keepEmpty) {
@@ -775,6 +785,71 @@
             musical_number: legacy.musical_number,
             notes: $('#notes') ? $('#notes').value.trim() : '',
         };
+    }
+
+    let saveTimer = null;
+    let saveChain = Promise.resolve();
+    let lastSavedJson = '';
+
+    function meetingFingerprint(payload) {
+        return JSON.stringify(payload);
+    }
+
+    function setSaveStatus(mode) {
+        const el = $('#saveStatus');
+        if (!el) return;
+        el.className = 'save-status' + (mode === 'error' ? ' is-error' : '');
+        el.textContent = mode === 'error' ? 'Não foi possível salvar' : '';
+    }
+
+    function scheduleAutosave() {
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(function () {
+            saveChain = saveChain.then(runAutosave).catch(function () {});
+        }, 700);
+    }
+
+    function flushAutosave() {
+        clearTimeout(saveTimer);
+        saveChain = saveChain.then(runAutosave).catch(function () {});
+        return saveChain;
+    }
+
+    async function runAutosave() {
+        if (!$('#meetingType')) return;
+        let payload;
+        try {
+            payload = collectMeeting();
+        } catch (e) {
+            return;
+        }
+        if (!payload.meeting_date) return;
+        const json = meetingFingerprint(payload);
+        if (json === lastSavedJson) return;
+        try {
+            const saved = await api('api/meetings.php?action=save', { method: 'POST', body: payload });
+            let current = null;
+            try {
+                current = collectMeeting();
+            } catch (e) {
+                current = null;
+            }
+            const sameForm = current
+                && current.meeting_date === payload.meeting_date
+                && meetingFingerprint(current) === json;
+            if (sameForm) {
+                lastSavedJson = json;
+                if (saved.meeting && saved.meeting.id && state.meeting) {
+                    state.meeting.id = saved.meeting.id;
+                    state.meeting.is_new = false;
+                }
+                setSaveStatus('');
+            } else if (current && current.meeting_date === payload.meeting_date) {
+                scheduleAutosave();
+            }
+        } catch (err) {
+            setSaveStatus('error');
+        }
     }
 
     function applyMobileFieldSizes() {
@@ -937,18 +1012,6 @@
             });
         });
 
-        $$('.btn-save-agenda').forEach((btn) => {
-            btn.addEventListener('click', async () => {
-                try {
-                    const saved = await api('api/meetings.php?action=save', { method: 'POST', body: collectMeeting() });
-                    state.meeting = saved.meeting;
-                    toast('Agenda salva.', true);
-                } catch (err) {
-                    toast(err.message);
-                }
-            });
-        });
-
         $('#btnPdf').addEventListener('click', () => downloadPdf());
         $('#btnPng').addEventListener('click', () => downloadPng());
 
@@ -983,6 +1046,7 @@
                     $('.hymn-json', box).value = JSON.stringify(hymn);
                     $('.hymn-meta', box).textContent = hymn.hymnal_name;
                     results.classList.add('hidden');
+                    scheduleAutosave();
                 });
             });
         }, 180);
@@ -990,12 +1054,13 @@
 
     async function loadAgenda(date) {
         try {
+            await flushAutosave();
             const url = date
                 ? 'api/meetings.php?action=get&date=' + encodeURIComponent(date)
                 : 'api/meetings.php?action=current';
             const data = await api(url);
             if (data.preferences) state.preferences = data.preferences;
-            renderAgenda(data.meeting);
+            renderAgenda(data.meeting, { markClean: true });
         } catch (err) {
             toast(err.message);
         }
@@ -1767,6 +1832,13 @@
             $$('.hymn-results').forEach((r) => r.classList.add('hidden'));
         }
     }, { passive: true });
+
+    $('#page-agenda').addEventListener('input', scheduleAutosave);
+    $('#page-agenda').addEventListener('change', scheduleAutosave);
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') flushAutosave();
+    });
+    window.addEventListener('pagehide', () => { flushAutosave(); });
 
     function closeAppConfirmFromUi() {
         closeAppConfirm(false);
